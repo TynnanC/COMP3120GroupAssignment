@@ -1,11 +1,16 @@
 {
-  "name": "group-web-project-group-q",
+  "name": "weekly-workshops-blueatria",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -14,8 +19,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "testreact": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node server/server.js",
+    "test": "jest --verbose"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +41,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^2.0.3",
+    "json-server": "^0.16.3",
+    "supertest": "^6.1.6"
   }
 }
