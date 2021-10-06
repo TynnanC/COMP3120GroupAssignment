@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, {useState} from 'react'
-import likesService from '../services/likes.js'
+import likesService from '../services/login.js'
 
 const LoginForm = ({user, setUser}) => {
 
@@ -9,8 +9,9 @@ const LoginForm = ({user, setUser}) => {
 
     const formHandler = (event) => {
       event.preventDefault()
-
+      console.log("form submitted" , username , password)
       likesService.login({username, password})
+      
         .then(data => {
             console.log("Success:", data)
             setUser(data)
@@ -21,10 +22,19 @@ const LoginForm = ({user, setUser}) => {
         })
     }
 
+    const logoutHandler = (event)=>{
+        event.preventDefault()
+        console.log("Log me out")
+        setUser(null)
+    }
+
     if (user) {
         return (
             <div className="row">
+                <form onSubmit={logoutHandler}>
                 <p>Logged in {user.name}</p>
+                <button type= "submit"> Log Me Out</button>
+                </form>
             </div>
         )
     } else {
