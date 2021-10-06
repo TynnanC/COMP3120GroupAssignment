@@ -1,0 +1,22 @@
+.main-sidebar-wrapper {
+    width: 5%;
+    border: 1px solid black;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-sidebar {
+    border: 1px solid black;
+}
+
+.sidebar-btn {
+    padding: 40px;
+}
+
+.btn {
+    width: 30px;
+    fill: black;
+}
