@@ -8,7 +8,19 @@ My First React App ;-)
 
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import unitService from './services/units'
+import unitService from './services/uiApi.js';
+
+import TrainerProfile from './components/TrainerProfile.js';
+
+const data={
+  trainer:
+      {
+          "id":0,
+          "trainerName": "John Smith",
+          "clientsId":[0,1]
+      }
+  
+}
 
 const App = () => {
 
@@ -108,7 +120,10 @@ const addUnit = (event) => {
          onChange={handleNewUnitOfferingChange}/>
          <button type="submit"> Add Unit </button>
        </form>
+       <TrainerProfile trainer={data.trainer}/>
   </div>
+
+  
 
   )
 }
