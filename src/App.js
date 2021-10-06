@@ -11,15 +11,22 @@ import './App.css';
 import unitService from './services/uiApi.js';
 
 import TrainerProfile from './components/TrainerProfile.js';
+import ClientProfile from './components/ClientProfile.js';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 const data={
   trainer:
       {
           "id":0,
           "trainerName": "John Smith",
-          "clientsId":[0,1]
-      }
-  
+          "clientsId":[0]
+      },
+      client:{
+        "id":0,
+        "name":"Bob Bobalooba",
+        "password":"bob",
+        "trainerId":0
+      } 
 }
 
 const App = () => {
@@ -120,7 +127,23 @@ const addUnit = (event) => {
          onChange={handleNewUnitOfferingChange}/>
          <button type="submit"> Add Unit </button>
        </form>
-       <TrainerProfile trainer={data.trainer}/>
+
+        {/*Below is the idea of how the profiles will be reached from the home screen*/}
+       {/*
+       <Router>
+         <Switch>
+           <Route path="/">
+             <TrainerProfile trainer={data.trainer}/>
+           </Route>
+           <Route path="/">
+             <ClientProfile client={data.client}/>
+           </Route>
+         </Switch>
+        </Router>*/}
+        {/*These are being displayed directly in the home screen for development purposes*/}
+        <TrainerProfile trainer={data.trainer}/>
+        <ClientProfile client={data.client}/>
+       
   </div>
 
   
