@@ -28,13 +28,26 @@ const getWorkoutByClientId = (id) => {
             .then(response => response.data)
 
 }
+const createWorkout = (newWorkout , user) => {
+//Cannot create a workout if the user is not logged in
+    if(!user){
+        console.log("User not logged in") 
+   return new Promise(()=> null)
+   }
+//Adding an authorization header to the request to check of user is  logged in or  not
+   const config = {headers: {Authorization : "Bearer " + user.token }}
+
+   return axios.post(appurl + "workouts", newWorkout , config)
+               .then(response => response.data)
+}
 
 const unitApi = {
     getClient,
     getTrainer,
     getWorkouts,
     getWorkoutById,
-    getWorkoutByClientId 
+    getWorkoutByClientId,
+    createWorkout
   
 }
 
