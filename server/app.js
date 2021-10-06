@@ -1,45 +1,86 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+//imporning fs module to handle getting data from the json file
+const fs = require("fs")
 
-
+// Load data from JSON file into memory
+const newrawData = fs.readFileSync("server/sampleDataFormat.json")
+//converts the raw data to json
+const appdata = JSON.parse(newrawData)
 
 app.use(cors())
 app.use(express.json())
 
+//api that responds to the get requests and sends back all information about the trainers
+app.get('/api/trainer', (request,response)=>{
 
-let units = [
-    {id: 0, code: "COMP1010", title:"Fundamentals of Computer Science", offering: ["S1", "S2"]},
-    {id: 1, code: "COMP1750", title:"Introduction to Business Information Systems", offering: ["S1"]},
-    {id: 2, code: "COMP2110", title:"Web Technology", offering: ["S1", "S2"]},
-    {id: 3, code: "COMP2750", title:"Applications Modelling and Development", offering: ["S1"]},
-    {id: 4, code: "MMCC2045", title:"Interactive Web Design", offering: ["S2"]},
-    {id: 5, code: "COMP3120", title:"Advanced Web Development", offering: ["S2"]},
-    {id: 6, code: "COMP3130", title:"Mobile Application Development", offering: ["S1"]}
-  ]
-
-
-
-
-app.get('/', (request, response) => {
-    response.send('<h1> This is the webserver </h1>')
+    response.send(appdata.trainer)
 })
 
-app.get('/api/units', (request, response) => {
-    response.json(units)
-})
+//api that responds to the get requests and sends back all information about the clients
+app.get('/api/client', (request,response)=>{
 
-app.get('/api/units/:id', (request, response) => {
+    response.send(appdata.client)
+})
+//api that to get all workouts
+app.get('/api/workouts', (request,response)=>{
+
+    response.send(appdata.workout)
+})
+//api that responds with a specific workout
+app.get('/api/workouts/:id', (request,response)=>{
+
     const id = Number(request.params.id)
-    console.log('the passed id is: ', id)
-    const unit = units.find(unit => {
-        console.log(unit.id, typeof unit.id, id, typeof id, unit.id === id)
-        return unit.id === id
-    })
-    console.log(unit)
-    response.json(unit)
+  const workout = appdata.workout.filter(w => w.id === id)[0]
+    if(workout){
+    response.send(workout)  
+    }else{
+        response.status(404)
+        response.send("workout not found")
+    }
 
 })
+//api that returns a workout for a client
+app.get('/api/client/:id/workouts', (request,response)=>{
+
+    const id = Number(request.params.id)
+    console.log(id)
+  const clientsworkout = appdata.workout.filter(w => w.clientId === id)[0]
+    if(clientsworkout){
+    response.send(clientsworkout)  
+    }else{
+        response.status(404)
+        response.send("workout not found for the client")
+    }
+
+})
+//api to records a workout
+app.post('/api/workouts', (request,response)=>{
+    const body = request.body
+    console.log("thiss is app data  at the moment", appdata)
+
+    const newWorkout = {
+        
+            id: appdata.workout.length,
+            clientId : body.clientId ,
+            trainerId : body.trainerId,
+            workoutName :body.workoutName,
+            goalText: body.goalText,
+            time : body.time,
+            frequency : body.frequency,
+            warmUp :  body.warmUp,
+            warmDown : body.warmDown,
+            weightExercises: body.weightExercises,
+            cardioExercises : body.cardioExercises
+
+    }
+
+    appdata.workout.push(newWorkout) 
+    response.json(newWorkout)
+})
+
+
 
 
 
