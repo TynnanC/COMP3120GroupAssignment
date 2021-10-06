@@ -1,0 +1,52 @@
+POST http://localhost:3001/api/workouts
+Content-Type: application/json
+
+{
+            "clientId":1,
+            "trainerId":2,
+            "workoutName":"Example Workout Name",
+            "goalText":"Example Goal",
+            "time":45,
+            "frequency":2,
+            "warmUp":[
+                {
+                    "exercise":"Example warmup",
+                    "time":30
+                }
+            ],
+            "warmDown":[
+                {
+                    "exercise":"Example warmdown",
+                    "time":30
+                }
+            ],
+            "weightExercises":[
+                {
+                    "id":0,
+                    "name":"Example exercise",
+                    "sets":1,
+                    "repetitions":1,
+                    "weight":1,
+                    "rest":30,
+                    "completedSets":0,
+                    "completedRepetitions":0,
+                    "completedWeight":0,
+                    "description":"Example exercise description",
+                    "progression":"Example of how progression will occur"
+                }
+            ],
+            "cardioExercises":[
+                {
+                    "id":0,
+                    "name":"Example exercise",
+                    "sets":1,
+                    "time":1,
+                    "rest":30,
+                    "completedSets":0,
+                    "completedTime":0,
+                    "description":"Example exercise description",
+                    "progression":"Example of how progression will occur"
+                }
+                
+            ]
+        }
