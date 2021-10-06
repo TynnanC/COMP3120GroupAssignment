@@ -21,13 +21,13 @@ const LoginForm = ({user, setUser}) => {
             console.log("Error:", error)
         })
     }
-
+    //Sets user to  null of  Lougout is  clicked
     const logoutHandler = (event)=>{
         event.preventDefault()
         console.log("Log me out")
         setUser(null)
     }
-
+    //A logout button that dsplays if user is  logged in (sets  users to null if pressed)
     if (user) {
         return (
             <div className="row">
