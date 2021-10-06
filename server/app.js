@@ -3,14 +3,62 @@ const app = express()
 const cors = require('cors')
 //imporning fs module to handle getting data from the json file
 const fs = require("fs")
+//bycryptlibrary for hashing passwords
+const bcrypt = require('bcryptjs')
+//jwt to genetare json web token
+const jwt = require('jsonwebtoken')
+
+const SECRET = "a secret"
 
 // Load data from JSON file into memory
 const newrawData = fs.readFileSync("server/sampleDataFormat.json")
 //converts the raw data to json
 const appdata = JSON.parse(newrawData)
 
+const getUser = (username) =>{
+
+    return appdata.client.filter( u => u.username === username )[0]
+  }
+
+  const getTokenFrom = request=>{
+  
+    const authorization = request.get('authorization')
+    if(authorization && authorization.toLowerCase().startsWith('bearer')){
+      return authorization.substring(7)
+    }
+    return null
+  
+  }
+ 
 app.use(cors())
 app.use(express.json())
+
+app.post('/api/login' , async(req , res) => {
+
+    const {username,password} = req.body
+  
+    const client  = getUser(username)
+  
+    if(!client){
+      return res.status(401).json({error : "invalid username or pass"})
+    }
+  
+    if(await bcrypt.compare (password , client.password)){
+  
+    
+        const userForToken = {
+          id : client.id,
+          username : client.username
+  
+        }
+  
+        const token = jwt.sign(userForToken , SECRET) 
+  
+      return res.status(200).json({token, username : client.username , name : client.name  })
+    }else{
+      return res.status(401).json({error : "invalid username or pass"})
+  }
+  })
 
 //api that responds to the get requests and sends back all information about the trainers
 app.get('/api/trainer', (request,response)=>{
@@ -58,7 +106,11 @@ app.get('/api/client/:id/workouts', (request,response)=>{
 //api to records a workout
 app.post('/api/workouts', (request,response)=>{
     const body = request.body
-    console.log("thiss is app data  at the moment", appdata)
+    const token = getTokenFrom(request)
+    const decodedtoken = jwt.verify(token , SECRET)   
+         if(!token || !decodedtoken.id){
+               return response.status(401).json({error : "Invalid token"})
+            }
 
     const newWorkout = {
         

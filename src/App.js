@@ -4,6 +4,7 @@ import "./styles/App.css";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import TrainerProfile from './components/TrainerProfile.js';
 import ClientProfile from './components/ClientProfile.js';
+import  LoginForm from  "./components/LoginForm.js"
 
 const data={
   trainer:
@@ -21,8 +22,12 @@ const data={
 }
 
 const App = () => {
+  
+  const  [user, setUser] = useState(null)
+
   return (
     <div>
+      <LoginForm setUser = {setUser} user = {user}/>
       {/*Below is the idea of how the profiles will be reached from the home screen*/}
        <Router>
          <div>
