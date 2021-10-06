@@ -15,9 +15,24 @@
     "client":[
                 {
                     "id":0,
-                    "name":"Example Name",
-                    "password":"Example Password",
+                    "name":"Eric",
+                    "username":"eric",
+                    "password":"$2a$10$Hz9xsNP6bz/oetXSBhiJfOrxIPCg1cle2aZGhmEn6ZUeG7HgUzpO6",
                     "trainerId":0
+                },
+                {
+                    "id":1,
+                    "name":"Lachlan",
+                    "username":"lachlan",
+                    "password":"$2a$10$4xLf0HWi.n0/qPMLfFMHkexJcQiOhBcwKdrTxc9YFdR0cwrbBKgtK",
+                    "trainerId":1
+                },
+                {
+                    "id":2,
+                    "name":"Tynnan",
+                    "username":"tynnan",
+                    "password":"$2a$10$RQfStj.YO64L5fA.7vBaB.u8jsdyKa8woPhZByBJ5yRctAdQaybHm",
+                    "trainerId":1
                 }
             ],
     "workout":[
