@@ -1,23 +1,41 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/api/units'
+const appurl = "http://localhost:3001/api/"
 
-const getAll = () => {
-    return axios.get(baseUrl)
+
+
+const getTrainer=()=>{
+    return axios.get(appurl + "trainer")
+            .then(response => response.data)
 }
 
-const create = newObject => {
-    return axios.post(baseUrl, newObject)
+const getClient=()=>{
+    return axios.get(appurl + "client")
+            .then(response => response.data)
 }
 
-const update = (id, newObject) => {
-    return axios.put(`${baseUrl}/${id}`, newObject)
-}
+const getWorkouts = () => {
+    return axios.get(appurl + "workouts")
+            .then(response => response.data)
 
+}
+const getWorkoutById = (id) => {
+    return axios.get(`${appurl + "workouts"}/${id}`)
+            .then(response => response.data)
+
+}
+const getWorkoutByClientId = (id) => {
+    return axios.get(`${appurl + "client"}/${id}/"workouts"`)
+            .then(response => response.data)
+
+}
 
 const unitApi = {
-    getAll,
-    create,
-    update
+    getClient,
+    getTrainer,
+    getWorkouts,
+    getWorkoutById,
+    getWorkoutByClientId 
+  
 }
 
 export default unitApi

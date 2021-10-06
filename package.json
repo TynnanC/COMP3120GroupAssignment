@@ -25,9 +25,7 @@
     "server": "nodemon server/server.js",
     "test": "jest --verbose"
   },
-
   "proxy": "http://localhost:3001/",
-
   "eslintConfig": {
     "extends": [
       "react-app",
