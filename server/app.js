@@ -36,7 +36,7 @@ app.use(express.json())
 app.post('/api/login' , async(req , res) => {
 
     const {username,password} = req.body
-  
+
     const client  = getUser(username)
   
     if(!client){
@@ -44,26 +44,30 @@ app.post('/api/login' , async(req , res) => {
     }
   
     if(await bcrypt.compare (password , client.password)){
-  
     
         const userForToken = {
           id : client.id,
-          username : client.username
-  
+          username : client.username,
+          trainerId:client.trainerId
         }
   
         const token = jwt.sign(userForToken , SECRET) 
   
-      return res.status(200).json({token, username : client.username , name : client.name  })
+      return res.status(200).json({token, username : client.username , name : client.name , trainerId:client.trainerId})
     }else{
       return res.status(401).json({error : "invalid username or pass"})
   }
   })
 
 //api that responds to the get requests and sends back all information about the trainers
-app.get('/api/trainer', (request,response)=>{
+app.get('/api/trainer', (request,response)=>{ 
+  response.send(appdata.trainer)
+})
 
-    response.send(appdata.trainer)
+//api that responds to the get requests and sends back all information about a specific trainer
+app.get(`/api/trainer/:id`, (request,response)=>{ 
+  const trainerId=Number(request.params.id)
+  response.send(appdata.trainer.filter( u => u.id === trainerId )[0])
 })
 
 //api that responds to the get requests and sends back all information about the clients

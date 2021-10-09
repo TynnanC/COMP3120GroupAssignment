@@ -1,15 +1,20 @@
+//At this point in time, trainers can't log in as part of the minimal viable product, so the page will display the client's trainer information.
+
 import React from 'react';
-import {BrowserRouter as Link} from "react-router-dom";
-const TrainerProfile =({trainer})=>{
-    return(
+const TrainerProfile =({trainer, client})=>{
+    if(client){
+        return(
         <div>
-            <h1>Trainer {trainer.trainerName}</h1>
-            <h2>Client ID's:</h2>
-            {(trainer.clientsId).map((client)=>
-            <ul key={client}>
-                <li><Link to={`/api/client/${client}`}>{client}</Link></li>
-            </ul>)}
+            <h1> Your Trainer's name is: {trainer.trainerName}</h1>
         </div>
     )
+    }
+    else{
+        return(
+            <div>
+                <p>Please log in to view your trainer's details</p>
+            </div>
+        )
+    }
 }
 export default TrainerProfile

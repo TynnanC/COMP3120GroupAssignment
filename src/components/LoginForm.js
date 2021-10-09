@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, {useState} from 'react'
 import likesService from '../services/login.js'
+import getTrainer from '../services/getTrainer.js'
 
-const LoginForm = ({user, setUser}) => {
+const LoginForm = ({user, setUser, setTrainer, trainer, errorMessage, setErrorMessage}) => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -13,14 +14,28 @@ const LoginForm = ({user, setUser}) => {
       likesService.login({username, password})
       
         .then(data => {
+            //I don't know why trainer needs to be set here to work on line 30. Comment out line 18 and trainer remains null despite line 30 being used.
+            setTrainer(data)
             console.log("Success:", data)
             setUser(data)
-        }
-        )
+            setErrorMessage('')
+        })
         .catch(error => {
             console.log("Error:", error)
+            setErrorMessage("Invalid Username or Password")
         })
     }
+    if(user){
+       const trainerId=user.trainerId
+       getTrainer.getTrainer({trainerId})
+       .then(data=>{
+           setTrainer(data)
+       })
+       .catch(error=>{
+           console.log(error)
+       })
+    }
+    
     //Sets user to  null of  Lougout is  clicked
     const logoutHandler = (event)=>{
         event.preventDefault()
@@ -39,7 +54,8 @@ const LoginForm = ({user, setUser}) => {
         )
     } else {
         return (
-            <form onSubmit={formHandler}>
+            <div>
+                <form onSubmit={formHandler}>
                     <div className="row">
                         <div className="four columns">
                             <label htmlFor="username">Username</label>
@@ -53,7 +69,11 @@ const LoginForm = ({user, setUser}) => {
                             <input type="submit" value="Login"/>
                         </div>
                     </div>
-            </form> 
+            </form>
+            <p>{errorMessage}</p>
+            </div>
+            
+            
             )
     }
 }

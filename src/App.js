@@ -2,44 +2,31 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
 import "./styles/App.css";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import TrainerProfile from './components/TrainerProfile.js';
 import ClientProfile from './components/ClientProfile.js';
+import TrainerProfile from './components/TrainerProfile.js';
 import  LoginForm from  "./components/LoginForm.js"
-
-const data={
-  trainer:
-      {
-          "id":0,
-          "trainerName": "John Smith",
-          "clientsId":[0]
-      },
-      client:{
-        "id":0,
-        "name":"Bob Bobalooba",
-        "password":"bob",
-        "trainerId":0
-      } 
-}
 
 const App = () => {
   
   const  [user, setUser] = useState(null)
+  const [trainer, setTrainer]=useState(null)
+  const [errorMessage, setErrorMessage]=useState('')
 
   return (
     <div>
-      <LoginForm setUser = {setUser} user = {user}/>
+      <LoginForm setUser = {setUser} user = {user} setTrainer={setTrainer} trainer={trainer} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
       {/*Below is the idea of how the profiles will be reached from the home screen*/}
        <Router>
          <div>
-           <Link to="/api/trainer/0">Trainer</Link>
-           <Link to="/api/client/0">Client</Link>
+           <Link to="/api/client">Client</Link>
+           <Link to="/api/trainer">Trainer</Link>
            </div>
          <Switch>
-           <Route path="/api/trainer/0">
-             <TrainerProfile trainer={data.trainer}/>
+           <Route path="/api/client">
+             <ClientProfile client={user}/>
            </Route>
-           <Route path="/api/client/0">
-             <ClientProfile client={data.client}/>
+           <Route path="/api/trainer">
+             <TrainerProfile trainer={trainer} client={user}/>
            </Route>
          </Switch>
         </Router>
