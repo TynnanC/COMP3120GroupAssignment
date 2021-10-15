@@ -28,6 +28,17 @@ const DoWorkout=({client, workout, setWorkout})=>{
                 </ul>
             )
             }
+            <h2>Cardio exercises</h2>
+            {workout.cardioExercises.map(exercises=>
+                <ul key={exercises.id}>
+                    <li>Name: {exercises.name}</li>
+                    <li>{exercises.sets} sets for {exercises.time} seconds.</li>
+                    <li>Rest {exercises.rest} seconds between sets.</li>
+                    <li>Description: {exercises.description}</li>
+                    <li>If you want to progress, do the following: {exercises.progression}</li>
+                </ul>
+            )
+            }
             <h2>Warmdown</h2>
             <p>perform {workout.warmDown.exercise} for {workout.warmDown.time} seconds.</p>
            </div>
