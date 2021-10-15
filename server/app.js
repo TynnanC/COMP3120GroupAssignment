@@ -53,7 +53,7 @@ app.post('/api/login' , async(req , res) => {
   
         const token = jwt.sign(userForToken , SECRET) 
   
-      return res.status(200).json({token, username : client.username , name : client.name , trainerId:client.trainerId})
+      return res.status(200).json({token, username : client.username , name : client.name , trainerId:client.trainerId, id:client.id})
     }else{
       return res.status(401).json({error : "invalid username or pass"})
   }
@@ -84,7 +84,7 @@ app.get('/api/workouts', (request,response)=>{
 app.get('/api/workouts/:id', (request,response)=>{
 
     const id = Number(request.params.id)
-  const workout = appdata.workout.filter(w => w.id === id)[0]
+  const workout = appdata.workout.filter(w => w.clientId === id)[0]
     if(workout){
     response.send(workout)  
     }else{
@@ -97,13 +97,11 @@ app.get('/api/workouts/:id', (request,response)=>{
 app.get('/api/client/:id/workouts', (request,response)=>{
 
     const id = Number(request.params.id)
-    console.log(id)
-  const clientsworkout = appdata.workout.filter(w => w.clientId === id)[0]
+    const clientsworkout = appdata.workout.filter(w => w.clientId === id)[0]
     if(clientsworkout){
-    response.send(clientsworkout)  
+      response.send(clientsworkout)  
     }else{
-        response.status(404)
-        response.send("workout not found for the client")
+        response.send(null)
     }
 
 })
