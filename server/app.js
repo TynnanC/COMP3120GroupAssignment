@@ -75,6 +75,11 @@ app.get('/api/client', (request,response)=>{
 
     response.send(appdata.client)
 })
+app.get(`/api/client/:id`, (request,response)=>{ 
+  const clientId=String(request.params.id)
+  console.log(clientId)
+  response.send(appdata.client.filter( u => u.id === clientId )[0])
+})
 //api that to get all workouts
 app.get('/api/workouts', (request,response)=>{
 
@@ -96,7 +101,7 @@ app.get('/api/workouts/:id', (request,response)=>{
 //api that returns a workout for a client
 app.get('/api/client/:id/workouts', (request,response)=>{
 
-    const id = Number(request.params.id)
+    const id = String(request.params.id)
     const clientsworkout = appdata.workout.filter(w => w.clientId === id)[0]
     if(clientsworkout){
       response.send(clientsworkout)  
