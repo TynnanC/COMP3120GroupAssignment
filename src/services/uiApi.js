@@ -12,7 +12,10 @@ const getClient=()=>{
     return axios.get(appurl + "client")
             .then(response => response.data)
 }
-
+const getClientById=(clientId)=>{
+    return axios.get(appurl + `client/${clientId}`)
+    .then(response=>response.data)
+}
 const getWorkouts = () => {
     return axios.get(appurl + "workouts")
             .then(response => response.data)
@@ -47,7 +50,8 @@ const unitApi = {
     getWorkouts,
     getWorkoutById,
     getWorkoutByClientId,
-    createWorkout
+    createWorkout,
+    getClientById
   
 }
 
