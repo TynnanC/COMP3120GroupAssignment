@@ -14,7 +14,7 @@
     ],
     "client":[
                 {
-                    "id":0,
+                    "id":"example@example.com",
                     "name":"Eric",
                     "username":"eric",
                     "password":"$2a$10$Hz9xsNP6bz/oetXSBhiJfOrxIPCg1cle2aZGhmEn6ZUeG7HgUzpO6",
@@ -38,7 +38,7 @@
     "workout":[
         {
             "id":0,
-            "clientId":0,
+            "clientId":"example@example.com",
             "trainerId":0,
             "workoutName":"Example Workout Name",
             "goalText":"Example Goal",
