@@ -1,7 +1,7 @@
 import axios from "axios";
 const BaseUrl = "http://localhost:3001/api/"
-const getTrainer=({trainerId})=>{
-    return axios.get(BaseUrl + `trainer/${trainerId}`)
+const getTrainer=({Ouruser})=>{
+    return axios.get(BaseUrl + `trainer/${Ouruser.trainerId}`)
     .then(response=>response.data)
 }
 export default {getTrainer}

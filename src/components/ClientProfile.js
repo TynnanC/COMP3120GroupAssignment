@@ -1,20 +1,38 @@
-import React from 'react';
-const ClientProfile=({client})=>{
-    if(client){
-        return(
-        <div>
-            <h1>{client.name}</h1>
-            <h2>Trainer ID: {client.trainerId}</h2>
-        </div>
-    )
+import { useAuth0 } from "@auth0/auth0-react";
+import unitApi from "../services/uiApi";
+
+
+const ClientProfile = ({ setourUser, Ouruser }) => {
+    const { user } = useAuth0()
+
+    if (!Ouruser) {
+
+        unitApi.getClientById(user.email)
+            .then(data => {
+                console.log(data)
+                setourUser(data)
+            })
     }
-    else{
-        return(
+    if (Ouruser) {
+        return (
             <div>
-                <p>Please log in to see your information</p>
+                <div>
+                    <h1>{Ouruser.name}</h1>
+                    <h2>Trainer ID: {Ouruser.trainerId}</h2>
+                </div>
+                <div>
+
+                </div>
             </div>
         )
+    } else {
+        return (
+            <div><p>Please log in to see your information</p></div>
+        )
     }
-    
+
+
+
+
 }
 export default ClientProfile

@@ -1,13 +1,14 @@
 import React from 'react';
 import likesService from '../services/getWorkout.js';
-const DoWorkout=({client, workout, setWorkout})=>{
-    if(client){
-        likesService.getWorkout({client})
+const DoWorkout=({Ouruser, workout, setWorkout})=>{
+    if(Ouruser){
+        if(!workout){
+        likesService.getWorkout({Ouruser})
         .then(data=>{
             if(data){
                 setWorkout(data)
             }
-        })
+        })}
         if(workout){
            return(
            <div>
