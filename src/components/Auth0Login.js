@@ -5,7 +5,10 @@ const Auth0Login = () => {
       return (
             <div>
                   {!isAuthenticated && (
+                        <div>
+                              <strong>Login Or Sign Up</strong> 
                         <button onClick={() => loginWithRedirect()} >Log In</button>
+                        </div>
                   )}
                   {isAuthenticated && (
                         <>
