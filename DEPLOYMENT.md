@@ -1,0 +1,7 @@
+Deployed Application:
+
+Developer information: This project is built as a React application, axios is used to send and receive requests to the API running on an express server, and MongoDB is used as the database. A skeleton framework is also used.
+To start future development, pull the project from Github or access a copy of the source code. Run 'npm install' in the root directory, this will install the required packages as degined in "package.json". To run a development version of the application, use 'npm start' to run the application and frontend, then use 'npm run server' to start the server and connect to MongoDB. Nodemon has been installed so changes in the code will be automatically reflected in the running application.
+The project has been deployed using Heroku. Heroku only allows one application to be deployed at a time on the free tier of the service. To deploy the application to Heroku, first run 'npm run build' to create the production build of the application, and 'got add .' and 'git commit -m""' to push to Github the latest project changes. Log in to Heroku in the terminal using 'heroku login'. Run 'heroku create' to create a Heroku application if it is the first time. Run 'git push heroku master' if the application already exists in Heroku.
+
+Continuous integration:?
