@@ -10,31 +10,36 @@ import Auth0Login from "./components/Auth0Login.js"
 import { useAuth0 } from "@auth0/auth0-react";
 //import unitApi from "./services/uiApi";
 
+//The main application component.
 const App = () => {
+  //Auth0 hook tracks if a user is authenticated or not.
   const { isAuthenticated } = useAuth0()
+  //State variables can be changed throughout the applications lifecycle.
   const [Ouruser, setourUser] = useState('')
   const [trainer, setTrainer] = useState(null)
-  // const [errorMessage, setErrorMessage]=useState('')
   const [workout, setWorkout] = useState(null)
-
-
   return (
     <div>
-      {/*Below is the idea of how the profiles will be reached from the home screen*/}
       <Router>
         <div>
           {/*Below is the Login form using Auth0*/}
           <Auth0Login setourUser={setourUser} setTrainer={setTrainer} trainer={trainer} />
+          {/*Navigation bar*/}
           {isAuthenticated && (
-            <><Link to="/api/client">Client</Link><Link to="/api/trainer">Trainer</Link><Link to="/api/doWorkout">Workout</Link></>
+            <>
+              <Link to="/api/client">Client</Link>
+              <Link to="/api/trainer">Trainer</Link>
+              <Link to="/api/doWorkout">Workout</Link>
+            </>
           )}
         </div>
         <Switch>
+          {/*The switch defines the routes and URL paths used.*/}
           <Route path="/api/client">
             <ClientProfile setourUser={setourUser} Ouruser={Ouruser} />
           </Route>
           <Route path="/api/trainer">
-            <TrainerProfile setTrainer={setTrainer} trainer={trainer} Ouruser={Ouruser} />
+            <TrainerProfile setourUser={setourUser} setTrainer={setTrainer} trainer={trainer} Ouruser={Ouruser} />
           </Route>
           <Route path="/api/doWorkout">
             <DoWorkout Ouruser={Ouruser} workout={workout} setWorkout={setWorkout} />
@@ -44,6 +49,5 @@ const App = () => {
     </div>
   )
 }
-
 
 export default App;

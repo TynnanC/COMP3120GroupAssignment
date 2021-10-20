@@ -1,4 +1,4 @@
-Simport React, { useState } from "react";
+import React, { useState } from "react";
 import getWorkout from "../services/getWorkout.js";
 import sendExercise from "../services/sendExercise.js";
 
