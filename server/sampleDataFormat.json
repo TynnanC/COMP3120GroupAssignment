@@ -1,89 +1,79 @@
 {
-    "trainer":[
-        {
-            "id":0,
-            "trainerName":"Example Name",
-            "clientsId":[0]
+    "trainer": [{
+            "id": 0,
+            "trainerName": "Example Name",
+            "clientsId": [0]
         },
         {
-            "id":1,
-            "trainerName":"Example Name 2",
-            "clientsId":[0]
+            "id": 1,
+            "trainerName": "Example Name 2",
+            "clientsId": [0]
         }
-
     ],
-    "client":[
-                {
-                    "id":"example@example.com",
-                    "name":"Eric",
-                    "username":"eric",
-                    "password":"$2a$10$Hz9xsNP6bz/oetXSBhiJfOrxIPCg1cle2aZGhmEn6ZUeG7HgUzpO6",
-                    "trainerId":0
-                },
-                {
-                    "id":1,
-                    "name":"Lachlan",
-                    "username":"lachlan",
-                    "password":"$2a$10$4xLf0HWi.n0/qPMLfFMHkexJcQiOhBcwKdrTxc9YFdR0cwrbBKgtK",
-                    "trainerId":1
-                },
-                {
-                    "id":2,
-                    "name":"Tynnan",
-                    "username":"tynnan",
-                    "password":"$2a$10$RQfStj.YO64L5fA.7vBaB.u8jsdyKa8woPhZByBJ5yRctAdQaybHm",
-                    "trainerId":1
-                }
-            ],
-    "workout":[
+    "client": [{
+            "id": "example@example.com",
+            "name": "Eric",
+            "username": "eric",
+            "password": "$2a$10$Hz9xsNP6bz/oetXSBhiJfOrxIPCg1cle2aZGhmEn6ZUeG7HgUzpO6",
+            "trainerId": 0
+        },
         {
-            "id":0,
-            "clientId":"example@example.com",
-            "trainerId":0,
-            "workoutName":"Example Workout Name",
-            "goalText":"Example Goal",
-            "time":45,
-            "frequency":2,
-            "warmUp":[
-                {
-                    "exercise":"Example warmup",
-                    "time":30
-                }
-            ],
-            "warmDown":[
-                {
-                    "exercise":"Example warmdown",
-                    "time":30
-                }
-            ],
-            "weightExercises":[
-                {
-                    "id":0,
-                    "name":"Example exercise",
-                    "sets":1,
-                    "repetitions":1,
-                    "weight":1,
-                    "rest":30,
-                    "completedSets":0,
-                    "completedRepetitions":0,
-                    "completedWeight":0,
-                    "description":"Example exercise description",
-                    "progression":"Example of how progression will occur"
-                }
-            ],
-            "cardioExercises":[
-                {
-                    "id":0,
-                    "name":"Example exercise",
-                    "sets":1,
-                    "time":1,
-                    "rest":30,
-                    "completedSets":0,
-                    "completedTime":0,
-                    "description":"Example exercise description",
-                    "progression":"Example of how progression will occur"
-                }
-            ]
+            "id": 1,
+            "name": "Lachlan",
+            "username": "lachlan",
+            "password": "$2a$10$4xLf0HWi.n0/qPMLfFMHkexJcQiOhBcwKdrTxc9YFdR0cwrbBKgtK",
+            "trainerId": 1
+        },
+        {
+            "id": 2,
+            "name": "Tynnan",
+            "username": "tynnan",
+            "password": "$2a$10$RQfStj.YO64L5fA.7vBaB.u8jsdyKa8woPhZByBJ5yRctAdQaybHm",
+            "trainerId": 1
         }
-    ]
+    ],
+    "workout": [{
+        "id": 0,
+        "clientId": "example@example.com",
+        "trainerId": 0,
+        "workoutName": "Example Workout Name",
+        "goalText": "Example Goal",
+        "time": 45,
+        "frequency": 2,
+        "warmUp": [{
+            "exercise": "Example warmup",
+            "time": 30
+        }],
+        "warmDown": [{
+            "exercise": "Example warmdown",
+            "time": 30
+        }],
+        "Exercises": [{
+                "id": 32,
+                "name": "Benchpress",
+                "type": "weights",
+                "sets": 1,
+                "repetitions": 1,
+                "weight": 1,
+                "rest": 30,
+                "completedSets": 0,
+                "completedRepetitions": 0,
+                "completedWeight": 0,
+                "description": "Example exercise description",
+                "progression": "Example of how progression will occur"
+            },
+            {
+                "id": 33,
+                "name": "Running",
+                "type": "cardio",
+                "sets": 1,
+                "time": 1,
+                "rest": 30,
+                "completedSets": 0,
+                "completedTime": 0,
+                "description": "Example exercise description",
+                "progression": "Example of how progression will occur"
+            }
+        ]
+    }]
 }
