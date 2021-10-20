@@ -102,23 +102,30 @@ app.get('/api/workouts/:id', (request,response)=>{
 app.get('/api/client/:id/workouts', (request,response)=>{
 
     const id = String(request.params.id)
-    const clientsworkout = appdata.workout.filter(w => w.clientId === id)[0]
+    for(let i=0; i<appdata.workout.length; i++){
+      if(appdata.workout[i].clientId===id){
+        response.send(appdata.workout[i])
+        break
+      }
+    }
+    /*const clientsworkout = appdata.workout.filter(w => w.clientId === id)[0]
+    console.log(clientsworkout)
     if(clientsworkout){
       response.send(clientsworkout)  
     }else{
         response.send(null)
-    }
+    }*/
 
 })
 //api to records a workout
 app.post('/api/workouts', (request,response)=>{
     const body = request.body
-    const token = getTokenFrom(request)
+    /*const token = getTokenFrom(request)
     const decodedtoken = jwt.verify(token , SECRET)   
          if(!token || !decodedtoken.id){
                return response.status(401).json({error : "Invalid token"})
-            }
-
+            }*/
+    
     const newWorkout = {
         
             id: appdata.workout.length,
@@ -138,10 +145,4 @@ app.post('/api/workouts', (request,response)=>{
     appdata.workout.push(newWorkout) 
     response.json(newWorkout)
 })
-
-
-
-
-
-
     module.exports = app

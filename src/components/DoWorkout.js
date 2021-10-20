@@ -1,14 +1,73 @@
-import React from 'react';
+import React, {useState} from 'react';
 import likesService from '../services/getWorkout.js';
+import progressWeightExercise from '../services/progressWeightExercise.js';
+import progressCardioExercise from '../services/progressCardioExercise.js';
 const DoWorkout=({Ouruser, workout, setWorkout})=>{
+    //const [dummyWorkout, setDummyWorkout]=useState()
+    let tempWorkout=workout
+    //const [temp, setTemp]=useState(null)
+    const progressWeight=(exercise, workout)=>{
+        //const dummyWorkout=workout;
+        /**/
+        
+        const tempWorkout=workout
+        for(let i=0; tempWorkout.weightExercises.length; i++){
+            if(tempWorkout.weightExercises[i].id===Number(exercise.id)){
+                tempWorkout.weightExercises[i].repetitions+=3;
+                break;
+            }
+        }
+        //setTemp(tempWorkout)
+        progressWeightExercise.progressWeightExercise(tempWorkout, Ouruser)
+        .then(data=>
+            console.log("Progression made", data)
+        )
+        .catch(error=>console.log(error))
+        console.log(tempWorkout)
+        //setDummyWorkout(temp)
+        //console.log("state", dummyWorkout)
+    }
+    const progressCardio=(exercise, workout)=>{
+        const tempWorkout=workout
+        for(let i=0; tempWorkout.cardioExercises.length; i++){
+            if(tempWorkout.cardioExercises[i].id===Number(exercise.id)){
+                tempWorkout.cardioExercises[i].time+=10;
+                break;
+            }
+        }
+        //setTemp(tempWorkout)
+        console.log(tempWorkout)
+        progressCardioExercise.progressCardioExercise(tempWorkout, Ouruser)
+        .then(data=>
+            console.log("Progression made", data)
+        )
+        .catch(error=>console.log(error))
+        /*const dummyWorkout=workout;
+        console.log("clicked")
+        progressCardioExercise.progressCardioExercise(exercise, dummyWorkout, Ouruser)
+        .then(data=>
+            console.log("Progression made", data)
+        )
+        .catch(error=>console.log(error))*/
+        //const temp=dummyWorkout
+        /*for(let i=0; tempWorkout.weightExercises.length; i++){
+            if(tempWorkout.cardioExercises[i].id===Number(exercise.id)){
+                tempWorkout.cardioExercises[i].time+=10;
+                break;
+            }
+        }*/
+        //setDummyWorkout(temp)
+        /*console.log("temp", tempWorkout)
+        return(tempWorkout)*/
+    }
+    
     if(Ouruser){
-        if(!workout){
+        
         likesService.getWorkout({Ouruser})
         .then(data=>{
-            if(data){
                 setWorkout(data)
-            }
-        })}
+                
+        })
         if(workout){
            return(
            <div>
@@ -26,6 +85,7 @@ const DoWorkout=({Ouruser, workout, setWorkout})=>{
                     <li>Rest {exercises.rest} seconds between sets.</li>
                     <li>Description: {exercises.description}</li>
                     <li>If you want to progress, do the following: {exercises.progression}</li>
+                    <button onClick={()=>progressWeight(exercises, workout, tempWorkout)}>Progress</button>
                 </ul>
             )
             }
@@ -37,6 +97,7 @@ const DoWorkout=({Ouruser, workout, setWorkout})=>{
                     <li>Rest {exercises.rest} seconds between sets.</li>
                     <li>Description: {exercises.description}</li>
                     <li>If you want to progress, do the following: {exercises.progression}</li>
+                    <button onClick={()=>progressCardio(exercises, workout, tempWorkout)}>Progress</button>
                 </ul>
             )
             }
@@ -45,9 +106,12 @@ const DoWorkout=({Ouruser, workout, setWorkout})=>{
            </div>
             ) 
         }
-        return(
+        else{
+           return(
             <p>No workouts have been planned</p>
-        )
+        ) 
+        }
+        
     }
     else{
         return(
