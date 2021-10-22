@@ -1,11 +1,11 @@
-Simport React, { useState } from "react";
+import React, { useState } from "react";
 import getWorkout from "../services/getWorkout.js";
 import sendExercise from "../services/sendExercise.js";
 
 const DoWorkout = ({ Ouruser, workout, setWorkout }) => {
-  const progressExercise = async (workout) => {
-    console.log(workout.Exercises[0].id);
-    sendExercise(workout.Exercises);
+  const progressExercise = async (id) => {
+    console.log("Sending to Server to Progress", id);
+    sendExercise(workout, id, Ouruser);
   };
 
   if (Ouruser) {
@@ -49,7 +49,7 @@ const DoWorkout = ({ Ouruser, workout, setWorkout }) => {
                 If you want to progress, do the following:
                 {exercises.progression}
               </li>
-              <button onClick={() => progressExercise(workout)}>
+              <button onClick={() => progressExercise(exercises.id)}>
                 Progress
               </button>
             </ul>
@@ -72,7 +72,7 @@ const DoWorkout = ({ Ouruser, workout, setWorkout }) => {
                 If you want to progress, do the following:
                 {exercises.progression}
               </li>
-              <button onClick={(e) => progressExercise(workout)}>
+              <button onClick={(e) => progressExercise(exercises.id)}>
                 Progress
               </button>
             </ul>
@@ -93,5 +93,3 @@ const DoWorkout = ({ Ouruser, workout, setWorkout }) => {
   }
 };
 export default DoWorkout;
-
-
