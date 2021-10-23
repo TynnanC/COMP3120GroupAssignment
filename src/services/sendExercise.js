@@ -4,7 +4,7 @@ const sendExercise = (exercise, id, Ouruser) => {
     const config = {
         headers: { Authorization: "bearer " + Ouruser.token },
         body: {
-            workout,
+            exercise,
             id,
         },
     };
