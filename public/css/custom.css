@@ -1,0 +1,49 @@
+#login{
+    text-align: center;
+    font-size: 30px;
+}
+#login button:active{
+    background-color: #a8a8a8;
+}
+#welcomeMessage{
+    text-align: right;
+    font-size: 26px;
+}
+#navBar a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 26px;
+    text-align: center;
+    margin:0;
+}
+#navBar a:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
+#navBar button:active{
+    background-color: #a8a8a8;
+}
+#navBar a:active{
+    background-color: #008000;
+}
+#workout{
+    text-align: center;
+    font-size: 18px;
+}
+#workout h2{
+    background-color: #a8a8a8;
+    font-weight: bold;
+}
+#workout ul{
+    list-style-type: none;
+    text-align: left;
+}
+#workout button:active{
+    background-color: #a8a8a8;
+}
+.exerciseName{
+    background-color: #84e984;
+}
+.warmUpOrDown{
+    text-align: left;
+}

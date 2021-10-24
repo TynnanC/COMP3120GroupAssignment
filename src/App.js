@@ -21,17 +21,17 @@ const App = () => {
   return (
     <div>
       <Router>
-        <div>
-          {/*Below is the Login form using Auth0*/}
-          <Auth0Login setourUser={setourUser} setTrainer={setTrainer} trainer={trainer} />
+        <div class="row" id="navBar">
           {/*Navigation bar*/}
           {isAuthenticated && (
             <>
-              <Link to="/api/client">Client</Link>
-              <Link to="/api/trainer">Trainer</Link>
-              <Link to="/api/doWorkout">Workout</Link>
+              <Link to="/api/client" class="two columns">Client</Link>
+              <Link to="/api/trainer" class="two columns">Trainer</Link>
+              <Link to="/api/doWorkout" class="two columns">Workout</Link>
             </>
           )}
+          {/*Below is the Login form using Auth0*/}
+          <Auth0Login setourUser={setourUser} setTrainer={setTrainer} trainer={trainer}/>
         </div>
         <Switch>
           {/*The switch defines the routes and URL paths used.*/}
