@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express.Router();
-import trainer from "../models/trainer.js";
+const trainer = require("../models/trainer.js");
+const workout = require("../models/workout.js");
+// const mongoose = require("mongoose");
 
 app.post("/api/login", async(req, res) => {
     const { username, password } = req.body;
@@ -30,7 +32,7 @@ app.post("/api/login", async(req, res) => {
 //HTTP GET request to api, which return all trainers in the database.
 app.get("/api/trainer", async(request, response) => {
     try {
-        const allTrainers = await trainer.find();
+        const allTrainers = await trainer.find({});
         response.json(allTrainers);
     } catch (err) {
         response.status(500).json({ message: err.message });
