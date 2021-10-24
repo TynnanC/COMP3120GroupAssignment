@@ -1,44 +1,6 @@
 const express = require("express");
-const app = express();
-const cors = require("cors");
-//importing fs module to handle getting data from the json file
-const fs = require("fs");
-//bycryptlibrary for hashing passwords
-const bcrypt = require("bcryptjs");
-//jwt to genetare json web token
-const jwt = require("jsonwebtoken");
-const SECRET = "a secret";
-// Load data from JSON file into memory
-const newrawData = fs.readFileSync("server/sampleDataFormat.json");
-//converts the raw data to json
-const appdata = JSON.parse(newrawData);
-const mongoose = require("mongoose");
-
-mongoose.connect(
-    "mongodb+srv://dbUSER:KTaqV9o2f9ftwdBq@appdb.zlb9u.mongodb.net/appDB?retryWrites=true&w=majority", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    }
-);
-
-const db = mongoose.connection;
-db.on("error", (error) => console.error(error));
-db.once("open", () => console.log("Connected to database"));
-
-//Returns the objects belonging to a current user.
-const getUser = (username) => {
-    return appdata.client.filter((u) => u.username === username)[0];
-};
-const getTokenFrom = (request) => {
-    const authorization = request.get("authorization");
-    if (authorization && authorization.toLowerCase().startsWith("bearer")) {
-        return authorization.substring(7);
-    }
-    return null;
-};
-
-app.use(cors());
-app.use(express.json());
+const app = express.Router();
+import trainer from "../models/trainer.js";
 
 app.post("/api/login", async(req, res) => {
     const { username, password } = req.body;
@@ -64,14 +26,24 @@ app.post("/api/login", async(req, res) => {
         return res.status(401).json({ error: "invalid username or pass" });
     }
 });
-//api that responds to the get requests and sends back all information about the trainers
-app.get("/api/trainer", (request, response) => {
-    response.send(appdata.trainer);
+
+//HTTP GET request to api, which return all trainers in the database.
+app.get("/api/trainer", async(request, response) => {
+    try {
+        const allTrainers = await trainer.find();
+        response.json(allTrainers);
+    } catch (err) {
+        response.status(500).json({ message: err.message });
+    }
 });
+
 //api that responds to the get requests and sends back all information about a specific trainer
-app.get(`/api/trainer/:id`, (request, response) => {
-    const trainerId = Number(request.params.id);
-    response.send(appdata.trainer.filter((u) => u.id === trainerId)[0]);
+app.get(`/api/trainer/:id`, getTrainerByID, (request, response) => {
+    try {
+        response.json(response.trainer);
+    } catch (err) {
+        response.status(500).json({ message: err.message });
+    }
 });
 //api that responds to the get requests and sends back all information about the clients
 app.get("/api/client", (request, response) => {
@@ -144,4 +116,20 @@ app.post("/api/updateWorkout", (req, res) => {
         cardioExercises: body.cardioExercises,
     };
 });
-module.exports = app;
+
+async function getTrainerByID(req, res, next) {
+    let findOne;
+    try {
+        findOne = await trainer.findById(req.params.id);
+        if (findOne == null) {
+            return res.status(404).json({ message: "Cannot find" });
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+
+    res.trainer = findOne;
+    next();
+}
+
+module.export = app;

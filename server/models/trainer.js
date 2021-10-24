@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const trainerSchema = new mongoose.Schema({
+const trainerSchema = new Schema({
     id: {
         type: String,
         required: true,
@@ -9,5 +9,8 @@ const trainerSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    clientID: {
+        type: String,
+    },
 });
-module.exports = mongoose.model("trainer", trainerSchema);
+export default model("trainer", trainerSchema);
