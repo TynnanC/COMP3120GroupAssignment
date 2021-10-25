@@ -13,6 +13,8 @@ const newrawData = fs.readFileSync("server/sampleDataFormat.json");
 //converts the raw data to json
 const appdata = JSON.parse(newrawData);
 const mongoose = require("mongoose");
+// production build option
+app.use(express.static('build'))
 
 mongoose.connect(
     "mongodb+srv://dbUSER:KTaqV9o2f9ftwdBq@appdb.zlb9u.mongodb.net/appDB?retryWrites=true&w=majority", {

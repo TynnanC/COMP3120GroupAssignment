@@ -26,7 +26,8 @@
     "build": "react-scripts build",
     "testreact": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon server/server.js",
+    "server": "node server/server.js",
+    "dev": "nodemon server/server.js",
     "test": "jest --verbose"
   },
   "proxy": "http://localhost:3001/",
