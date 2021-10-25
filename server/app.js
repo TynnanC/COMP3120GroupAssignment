@@ -146,4 +146,16 @@ app.post("/api/updateWorkout", (req, res) => {
         cardioExercises: body.cardioExercises,
     };
 });
+//Server handling og completed workouts
+app.get("/api/compworkouts/:id", (request, response) => {
+    const id = String(request.params.id);
+    const client = appdata.client.filter((u) => u.id === id)[0]
+    const listofcompworkoutids = client.compWO
+    const WO = []
+    for (let i = 0; i < listofcompworkoutids.length; i++) {
+        WO.push(appdata.workout.filter((u) => u.id === listofcompworkoutids[i])[0])
+    }
+
+    response.send(WO)
+});
 module.exports = app;
