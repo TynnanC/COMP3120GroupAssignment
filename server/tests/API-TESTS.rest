@@ -21,8 +21,16 @@ GET http://localhost:3001/api/workout/6178bc6381c28825ae4448b1
 
 ###
 
-GET http://localhost:3001/api/workout/
+GET http://localhost:3001/api/client/
 
+###
 
+POST http://localhost:3001/api/client/
+Content-Type: application/json
+
+{
+    "username": "example@example.com",
+    "trainerID": "1"
+}
 
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import Sidebar from "./components/Sidebar";
 import "./styles/App.css";
 import {
   BrowserRouter as Router,
@@ -10,11 +9,9 @@ import {
 } from "react-router-dom";
 import ClientProfile from "./components/ClientProfile.js";
 import TrainerProfile from "./components/TrainerProfile.js";
-//import  LoginForm from  "./components/LoginForm.js";
 import DoWorkout from "./components/DoWorkout.js";
 import Auth0Login from "./components/Auth0Login.js";
 import { useAuth0 } from "@auth0/auth0-react";
-//import unitApi from "./services/uiApi";
 
 //The main application component.
 const App = () => {
