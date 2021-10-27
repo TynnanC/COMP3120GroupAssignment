@@ -23,9 +23,12 @@ app.get(`/:id`, getClient, async(request, response) => {
 
 //HTTP POST Request to API, Add New Client to Database
 app.post("/", async(request, response) => {
+    let findUser = await client.find({ username: request.body.username });
+    if (findUser.username === request.body.username) {
+        return response.status(201).json({ message: "User already added." });
+    }
     const newClient = new client({
         username: request.body.username,
-        password: request.body.password,
         trainerID: request.body.trainerID,
     });
     try {
