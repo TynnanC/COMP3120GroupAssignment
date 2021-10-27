@@ -23,9 +23,9 @@ db.once("open", () => console.log("Connected to database"));
 app.use(cors());
 app.use(express.json());
 //Returns the objects belonging to a current user.
-app.use("/login", loginRouter);
-app.use("/client", clientRouter);
-app.use("/workout", workoutRouter);
-app.use("/trainer", trainerRouter);
+app.use("/api/login", loginRouter);
+app.use("/api/client", clientRouter);
+app.use("/api/workout", workoutRouter);
+app.use("/api/trainer", trainerRouter);
 
 module.exports = app;

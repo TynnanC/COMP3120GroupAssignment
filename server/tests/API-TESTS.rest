@@ -16,10 +16,13 @@ Content-Type: application/json
 
         
 ###
-GET http://localhost:3001/workout/
+GET http://localhost:3001/api/workout/6178bc6381c28825ae4448b1
+
 
 ###
-https://localhost:3001/
 
-###
-https://localhost:3001/
+GET http://localhost:3001/api/workout/
+
+
+
+

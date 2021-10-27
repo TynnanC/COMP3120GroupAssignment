@@ -13,14 +13,11 @@ app.get("/", async(request, response) => {
 });
 
 //HTTP GET Request, Return one workout
-app.get("/:id", (request, response) => {
-    const id = Number(request.params.id);
-    const workout = appdata.workout.filter((w) => w.clientId === id)[0];
-    if (workout) {
-        response.send(workout);
-    } else {
-        response.status(404);
-        response.send("workout not found");
+app.get("/:id", getWorkout, (request, response) => {
+    try {
+        response.json(response.workout);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
     }
 });
 
@@ -78,4 +75,20 @@ app.post("/:id", (request, response) => {
         cardioExercises: body.cardioExercises,
     };
 });
+
+async function getWorkout(req, res, next) {
+    let workoutFind;
+    try {
+        workoutFind = await workout.findById(req.params.id);
+        if (workoutFind == null) {
+            return res.status(404).json({ message: "Cannot find Workout" });
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+
+    res.workout = workoutFind;
+    next();
+}
+
 module.exports = app;

@@ -9,8 +9,8 @@ const trainerSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    clientID: {
-        type: String,
+    clients: {
+        type: [String],
     },
 });
 module.exports = mongoose.model("trainer", trainerSchema);

@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const clientSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        requried: true,
-    },
     username: {
         type: String,
         required: true,
@@ -13,7 +9,7 @@ const clientSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    trainer: {
+    trainerID: {
         type: String,
         required: true,
     },
