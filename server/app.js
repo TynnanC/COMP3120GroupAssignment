@@ -3,7 +3,6 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const clientRouter = require("./routes/clientRoute.js");
-const loginRouter = require("./routes/loginRoute.js");
 const trainerRouter = require("./routes/trainerRoute.js");
 const workoutRouter = require("./routes/workoutRoute.js");
 
@@ -23,7 +22,7 @@ db.once("open", () => console.log("Connected to database"));
 app.use(cors());
 app.use(express.json());
 //Returns the objects belonging to a current user.
-app.use("/api/login", loginRouter);
+
 app.use("/api/client", clientRouter);
 app.use("/api/workout", workoutRouter);
 app.use("/api/trainer", trainerRouter);
