@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const workoutSchema = new Schema({
+const workoutSchema = new mongoose.Schema({
     trainerId: {
         type: String,
         required: true,
@@ -33,19 +33,15 @@ const workoutSchema = new Schema({
         type: [Number],
         required: true,
     },
-    id: {
-        type: String,
-        required: true,
-    },
-    name: {
-        type: String,
-        required: true,
-    },
     clientID: {
         type: String,
     },
+    completed: {
+        type: Boolean,
+        required: true,
+    },
 });
 
-// ... mongo relations 
+// ... mongo relations
 
-export default model("workout", workoutSchema);
+module.exports = mongoose.model("workout", workoutSchema);
