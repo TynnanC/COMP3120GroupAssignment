@@ -2,32 +2,7 @@ const express = require("express");
 const app = express.Router();
 const trainer = require("../models/trainer.js");
 const workout = require("../models/workout.js");
-// const mongoose = require("mongoose");
-
-app.post("/api/login", async(req, res) => {
-    const { username, password } = req.body;
-    const client = getUser(username);
-    if (!client) {
-        return res.status(401).json({ error: "invalid username or pass" });
-    }
-    if (await bcrypt.compare(password, client.password)) {
-        const userForToken = {
-            id: client.id,
-            username: client.username,
-            trainerId: client.trainerId,
-        };
-        const token = jwt.sign(userForToken, SECRET);
-        return res.status(200).json({
-            token,
-            username: client.username,
-            name: client.name,
-            trainerId: client.trainerId,
-            id: client.id,
-        });
-    } else {
-        return res.status(401).json({ error: "invalid username or pass" });
-    }
-});
+const client = require("../models/client.js");
 
 //HTTP GET request to api, which return all trainers in the database.
 app.get("/api/trainer", async(request, response) => {
@@ -47,10 +22,17 @@ app.get(`/api/trainer/:id`, getTrainerByID, (request, response) => {
         response.status(500).json({ message: err.message });
     }
 });
+
 //api that responds to the get requests and sends back all information about the clients
 app.get("/api/client", (request, response) => {
-    response.send(appdata.client);
+    try {
+        const allClients = await client.find({});
+        response.json(allClients);
+    } catch (err) {
+        response.status(500).json({ message: err.message });
+    }
 });
+
 //API that responds with information for a specific user.
 app.get(`/api/client/:id`, (request, response) => {
     const clientId = String(request.params.id);
