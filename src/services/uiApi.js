@@ -37,6 +37,12 @@ const createWorkout = (newWorkout , user) => {
    return axios.post(appurl + "workouts", newWorkout , config)
                .then(response => response.data)
 }
+const getCompletedWorkouts = (Ouruser) => {
+    console.log("this is request")
+
+    return axios.get(`${appurl + "compworkouts"}/${Ouruser.id}`)
+            .then(response => response.data)
+}
 const unitApi = {
     getClient,
     getTrainer,
@@ -44,6 +50,7 @@ const unitApi = {
     getWorkoutById,
     getWorkoutByClientId,
     createWorkout,
+    getCompletedWorkouts,
     getClientById 
 }
 
