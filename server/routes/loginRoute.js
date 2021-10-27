@@ -3,10 +3,12 @@ const app = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const SECRET = "a secret";
+const client = require("../models/client.js");
 
 const getUser = (username) => {
-    return appdata.client.filter((u) => u.username === username)[0];
+    return client.find({ username: username });
 };
+
 const getTokenFrom = (request) => {
     const authorization = request.get("authorization");
     if (authorization && authorization.toLowerCase().startsWith("bearer")) {
@@ -17,23 +19,23 @@ const getTokenFrom = (request) => {
 
 app.post("/", async(req, res) => {
     const { username, password } = req.body;
-    const client = getUser(username);
-    if (!client) {
+    const checkClient = getUser(username);
+    if (!checkClient) {
         return res.status(401).json({ error: "invalid username or pass" });
     }
-    if (await bcrypt.compare(password, client.password)) {
+    if (await bcrypt.compare(password, checkClient.password)) {
         const userForToken = {
-            id: client.id,
-            username: client.username,
-            trainerId: client.trainerId,
+            id: checkCcheckCient.id,
+            username: checkClient.username,
+            trainerId: checkClient.trainerId,
         };
         const token = jwt.sign(userForToken, SECRET);
         return res.status(200).json({
             token,
-            username: client.username,
-            name: client.name,
-            trainerId: client.trainerId,
-            id: client.id,
+            username: checkClient.username,
+            name: checkClient.name,
+            trainerId: checkClient.trainerId,
+            id: checkClient.id,
         });
     } else {
         return res.status(401).json({ error: "invalid username or pass" });

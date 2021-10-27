@@ -5,7 +5,7 @@ const client = require("../models/client.js");
 //HTTP GET Request to API, Returns all clients
 app.get("/", async(request, response) => {
     try {
-        const allClients = await client.find({});
+        const allClients = await client.find();
         response.json(allClients);
     } catch (err) {
         response.status(500).json({ message: err.message });

@@ -1,10 +1,9 @@
 import axios from "axios";
-import React from 'react';
+import React from "react";
 
 //Requests a workout object that is assigned to the authenticated user.
-const BaseUrl = "http://localhost:3001/api/"
-const getWorkout=({Ouruser})=>{
-    return axios.get(BaseUrl + `client/${Ouruser.id}/workouts`)
-    .then(response=>response.data)
-}
-export default {getWorkout}
+const BaseUrl = "http://localhost:3001/api/";
+const getWorkout = ({ Ouruser }) => {
+    return axios.get(BaseUrl + `/workout`).then((response) => response.data);
+};
+export default { getWorkout };

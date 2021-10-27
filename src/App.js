@@ -24,42 +24,39 @@ const App = () => {
   const [Ouruser, setourUser] = useState("");
   const [trainer, setTrainer] = useState(null);
   const [workout, setWorkout] = useState(null);
-  const [completedWO, setCompWO] = useState(null)
+  const [completedWO, setCompWO] = useState(null);
 
   console.log({ Ouruser });
   return (
     <div>
       <Router>
-        <div class="row" id="navBar">
+        <div className="row" id="navBar">
           {/*Navigation bar*/}
           {isAuthenticated && (
             <>
-              <Link to="/api/client" class="two columns">
+              <Link to="/api/client" className="two columns">
                 Client
               </Link>
-              <Link to="/api/trainer" class="two columns">
+              <Link to="/api/trainer" className="two columns">
                 Trainer
               </Link>
-              <Link to="/api/doWorkout" class="two columns">
+              <Link to="/api/doWorkout" className="two columns">
                 Workout
               </Link>
             </>
           )}
           {/*Below is the Login form using Auth0*/}
-          <Auth0Login 
-            setTrainer={setTrainer} 
-            trainer={trainer}
-             />
+          <Auth0Login setTrainer={setTrainer} trainer={trainer} />
         </div>
         <Switch>
           {/*The switch defines the routes and URL paths used.*/}
           <Route path="/api/client">
-            <ClientProfile 
-              Ouruser={Ouruser} 
+            <ClientProfile
+              Ouruser={Ouruser}
               setourUser={setourUser}
-              completedWO ={completedWO}
-              setCompWO = {setCompWO}
-               />
+              completedWO={completedWO}
+              setCompWO={setCompWO}
+            />
           </Route>
           <Route path="/api/trainer">
             <TrainerProfile

@@ -35,20 +35,20 @@ const DoWorkout = ({ Ouruser, setourUser, workout, setWorkout }) => {
             You should perform this workout {workout.frequency}
             times a week.
           </p>
-          <div class="rows">
-            <div class="three columns">
+          <div className="rows">
+            <div className="three columns">
               <h2> Warmup </h2>
-              <p class="warmUpOrDown">
+              <p className="warmUpOrDown">
                 Perform {workout.warmUp[0].exercise}
                 for {workout.warmUp[0].time}
                 seconds.
               </p>
             </div>
-            <div class="three columns">
+            <div className="three columns">
               <h2> Weights exercises </h2>
               {workout.Exercises.map((exercises) => (
                 <ul key={exercises.id}>
-                  <li class="exerciseName"> Name: {exercises.name} </li>
+                  <li className="exerciseName"> Name: {exercises.name} </li>
                   <li>
                     Scheme: {exercises.sets} sets of {exercises.repetitions}{" "}
                     repetitions.
@@ -65,11 +65,11 @@ const DoWorkout = ({ Ouruser, setourUser, workout, setWorkout }) => {
                 </ul>
               ))}
             </div>
-            <div class="three columns">
+            <div className="three columns">
               <h2> Cardio exercises </h2>
               {workout.Exercises.map((exercises) => (
                 <ul key={exercises.id}>
-                  <li class="exerciseName"> Name: {exercises.name} </li>
+                  <li className="exerciseName"> Name: {exercises.name} </li>
                   <li>
                     Scheme: {exercises.sets} sets for {exercises.time} seconds.
                   </li>
@@ -85,9 +85,9 @@ const DoWorkout = ({ Ouruser, setourUser, workout, setWorkout }) => {
                 </ul>
               ))}
             </div>
-            <div class="three columns">
+            <div className="three columns">
               <h2> Warmdown </h2>
-              <p class="warmUpOrDown">
+              <p className="warmUpOrDown">
                 Perform {workout.warmDown[0].exercise}
                 for {workout.warmDown[0].time}
                 seconds.

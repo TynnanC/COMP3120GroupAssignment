@@ -57,25 +57,18 @@ app.post("/", async(request, response) => {
     }
 });
 
-app.post("/:id", (request, response) => {
-    const body = req.body;
-    req.completed = true;
-    //mongo.save
-    const newWorkout = {
-        id: appdata.workout.length,
-        clientId: body.clientId,
-        trainerId: body.trainerId,
-        workoutName: body.workoutName,
-        goalText: body.goalText,
-        time: body.time,
-        frequency: body.frequency,
-        warmUp: body.warmUp,
-        warmDown: body.warmDown,
-        weightExercises: body.weightExercises,
-        cardioExercises: body.cardioExercises,
-    };
+//HTTP PATCH Request, Updates a workout to completed
+app.post("/:id", getWorkout, async(request, response) => {
+    response.workout.completed = true;
+    try {
+        const completedWorkout = await response.workout.save();
+        response.json(completedWorkout);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
 });
 
+//Function that finds indiviual workout by ID
 async function getWorkout(req, res, next) {
     let workoutFind;
     try {
