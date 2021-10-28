@@ -1,44 +1,44 @@
-#login{
+.login{
     text-align: center;
     font-size: 30px;
 }
-#login button:active{
+.login button:active{
     background-color: #a8a8a8;
 }
-#welcomeMessage{
+.welcomeMessage{
     text-align: center;
     font-size: 26px;
 }
-#navBar a{
+.navBar div a{
     text-decoration: none;
     color: #000000;
     font-size: 26px;
     text-align: center;
     margin:0;
 }
-#navBar a:hover{
+.navBar div a:hover{
     background-color: #000000;
     color: #ffffff;
 }
-#navBar button:active{
+.navBar div button:active{
     background-color: #a8a8a8;
 }
-#navBar a:active{
+.navBar div a:active{
     background-color: #008000;
 }
-#workout{
+.workout{
     text-align: center;
     font-size: 18px;
 }
-#workout h2{
+.workout h2{
     background-color: #a8a8a8;
     font-weight: bold;
 }
-#workout ul{
+.workout ul{
     list-style-type: none;
     text-align: left;
 }
-#workout button:active{
+.workout button:active{
     background-color: #a8a8a8;
 }
 .exerciseName{
@@ -47,18 +47,18 @@
 .warmUpOrDown{
     text-align: left;
 }
-#profile{
+.profile{
    
     text-align: center;
     border-top: #000000 solid 1px;
 }
-#profileimage{
+.profileimage{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 150px;
     margin-bottom: 10px;
 
 }
-#workoutheadings{
+.workoutheadings{
     border: #000000 solid 1px;
     background-color: #a8a8a8;
     text-align: center;
@@ -81,5 +81,4 @@
 }
 .ninty{
     margin-left: 5px;
-
 }

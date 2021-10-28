@@ -17,19 +17,22 @@ const ClientProfile = ({ setourUser, Ouruser , completedWO, setCompWO }) => {
   if (Ouruser) {
     return (
       <div>
-        <div class="row">
-                    <div className="twelve columns" id="profile">
+        <div className="row">
+                    <div className="twelve columns">
+                      <div className="profile">
                         <h4>Welcome: {Ouruser.name}</h4>
                         <h4>Your Trainer Id {Ouruser.trainerId}</h4>
                         <div>
-                            <img  id = "profileimage" src="https://robohash.org/SOMETHING" alt="Someone" />
+                            <img  className = "profileimage" src="https://robohash.org/SOMETHING" alt="Someone" />
                         </div>
+                      </div>
+                        
                         </div>
                     </div>
-                    <div className = "row" >
-                      <h3 id = "workoutheadings">Workouts</h3>
+                    <div>
+                      <h3 className = "workoutheadings">Workouts</h3>
                     </div>
-                    <div className = "row">
+                    <div>
                       <ListCompWorkouts Ouruser = {Ouruser} completedWO= {completedWO} setCompWO = {setCompWO}/>
                       </div>
       </div>

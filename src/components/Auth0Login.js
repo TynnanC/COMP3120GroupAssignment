@@ -13,9 +13,9 @@ const Auth0Login = () => {
   return (
     <div>
       {/*Checks if the user is authenticated or not. If the user is not authenticated, they are directed to an Auth0 login screen to enter their name and email.*/}
-      <div id="login">
+      <div className="login">
         <div>
-          <img src={exampleLogo} />
+          <img src={exampleLogo} alt="Logo"/>
         </div>
         <strong> Login </strong>
         <div>
@@ -23,13 +23,13 @@ const Auth0Login = () => {
         </div>
         <p> No account ? Speak with a trainer to get started! </p>
       </div>
-      )}
+      )
       {isAuthenticated && (
         <>
-          <div class="four columns" id="welcomeMessage">
-            <p> Welcome {user.name}! </p>
+          <div className="four columns">
+            <p className="welcomeMessage"> Welcome {user.name}! </p>
           </div>
-          <button onClick={() => logout()} class="two columns">
+          <button onClick={() => logout()} className="two columns">
             Log Out
           </button>
         </>

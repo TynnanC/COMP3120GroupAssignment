@@ -17,7 +17,7 @@ const ListCompWorkouts = ({ Ouruser, completedWO, setCompWO }) => {
 
     if (completedWO) {
         return (
-            <><div className = "row ninty">
+            <><div className = "ninty">
                 <div>
                     <ul>
                         {completedWO.map((compWork) => (<CompletedWorkout key={compWork.id} compWork={compWork} Ouruser = {Ouruser}/>))}

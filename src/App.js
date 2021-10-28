@@ -25,9 +25,9 @@ const App = () => {
 
   console.log({ Ouruser });
   return (
-    <div>
+    <div className="navBar">
       <Router>
-        <div className="row" id="navBar">
+        <div className="row">
           {/*Navigation bar*/}
           {isAuthenticated && (
             <>

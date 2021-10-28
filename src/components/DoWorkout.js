@@ -24,7 +24,7 @@ const DoWorkout = ({ Ouruser, setourUser, workout, setWorkout }) => {
 
     if (workout) {
       return (
-        <div id="workout">
+        <div className="workout">
           <h1> {workout.workoutName} </h1>
           <p> The goal of the workout is to {workout.goalText} </p>
           <p>
