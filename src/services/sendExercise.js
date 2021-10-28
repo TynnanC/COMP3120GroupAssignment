@@ -1,5 +1,5 @@
 import axios from "axios";
-const BaseUrl = "http://localhost:3001/api/";
+const BaseUrl = process.env.BaseUrl || "http://localhost:3001/api/";
 const sendExercise = (exercise, id, Ouruser) => {
     const config = {
         headers: { Authorization: "bearer " + Ouruser.token },

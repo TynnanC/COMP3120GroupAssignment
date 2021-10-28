@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const appurl = "http://localhost:3001/api/"
+const appurl = process.env.appurl || "http://localhost:3001/api/"
+
 const getTrainer=()=>{
     return axios.get(appurl + "trainer")
             .then(response => response.data)
