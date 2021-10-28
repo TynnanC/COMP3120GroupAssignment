@@ -1,5 +1,10 @@
 import axios from "axios";
-const BaseUrl = process.env.BaseUrl || "http://localhost:3001/api/";
+const BaseUrl = (() => {
+    if (process.env.NODE_ENV !== 'production')
+      return  "http://localhost:3001/api/";
+    else 
+      return "/"
+  })();
 const sendExercise = (exercise, id, Ouruser) => {
     const config = {
         headers: { Authorization: "bearer " + Ouruser.token },

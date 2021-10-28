@@ -1,6 +1,11 @@
 import axios from 'axios'
 
-const appurl = process.env.appurl || "http://localhost:3001/api/"
+const appurl = (() => {
+    if (process.env.NODE_ENV !== 'production')
+      return  "http://localhost:3001/api/";
+    else 
+      return "/"
+  })();
 
 const getTrainer=()=>{
     return axios.get(appurl + "trainer")
