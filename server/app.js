@@ -9,6 +9,7 @@ const workoutRouter = require("./routes/workoutRoute.js");
 // production build option
 app.use(express.static("build"));
 
+//Connection to the database.
 mongoose.connect(
     "mongodb+srv://dbUSER:KTaqV9o2f9ftwdBq@appdb.zlb9u.mongodb.net/appDB?retryWrites=true&w=majority", {
         useNewUrlParser: true,
@@ -21,8 +22,8 @@ db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to database"));
 app.use(cors());
 app.use(express.json());
-//Returns the objects belonging to a current user.
 
+//Routes used for the API.
 app.use("/api/client", clientRouter);
 app.use("/api/workout", workoutRouter);
 app.use("/api/trainer", trainerRouter);

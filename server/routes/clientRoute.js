@@ -39,6 +39,7 @@ app.post("/", async(request, response) => {
     }
 });
 
+//Function to find a client in the database that has the same Id as the requested client's Id.
 async function getClient(req, res, next) {
     let clientFind;
     try {
@@ -49,7 +50,6 @@ async function getClient(req, res, next) {
     } catch (err) {
         return res.status(500).json({ message: err.message });
     }
-
     res.client = clientFind;
     next();
 }

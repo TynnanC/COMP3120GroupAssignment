@@ -24,6 +24,7 @@ const Auth0Login = () => {
         <p> No account ? Speak with a trainer to get started! </p>
       </div>
       )
+      {/*If a user is authenticated, a welcome message is displayed, and a logout button is displayed*/}
       {isAuthenticated && (
         <>
           <div className="four columns">

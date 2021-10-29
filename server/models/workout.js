@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//Workout model for MongoDB. Contains the fields used by workouts.
 const workoutSchema = new mongoose.Schema({
     trainerId: {
         type: String,

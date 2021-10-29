@@ -46,4 +46,5 @@ const TrainerProfile = ({ setourUser, Ouruser, setTrainer, trainer }) => {
         )
     }
 }
+
 export default TrainerProfile

@@ -12,7 +12,7 @@ app.get("/", async(request, response) => {
     }
 });
 
-//HTTP GET Request to api, returns data about an unique trainer
+//HTTP GET Request to api, returns data about an unique trainer.
 app.get(`/:id`, getTrainer, async(request, response) => {
     try {
         response.json(response.trainer);
@@ -21,7 +21,7 @@ app.get(`/:id`, getTrainer, async(request, response) => {
     }
 });
 
-//HTTP PATCH Request to API, Updates Details For Trainer
+//HTTP PATCH Request to API, Updates Details For Trainer.
 app.patch(`/:id`, getTrainer, async(request, response) => {
     try {
         response.json(response.trainer);
@@ -30,6 +30,7 @@ app.patch(`/:id`, getTrainer, async(request, response) => {
     }
 });
 
+//Function to find a trainer in the database that has the same Id as the one requested.
 async function getTrainer(req, res, next) {
     let trainerFind;
     try {

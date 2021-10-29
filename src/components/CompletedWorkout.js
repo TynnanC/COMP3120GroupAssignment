@@ -1,9 +1,7 @@
 import React from "react"
 
-
-
-const CompletedWorkout = ({compWork , Ouruser}) => {
-   
+//Creates a display for when a workout has been completed.
+const CompletedWorkout = ({compWork , Ouruser}) => {   
   return (
       <div className = "four columns completedworkoutcontainer" > 
        <div>
