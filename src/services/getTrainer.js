@@ -3,7 +3,7 @@ import axios from "axios";
 //Requests an object containing the trainer and their information assigned to a user.
 const BaseUrl = (() => {
   if (process.env.NODE_ENV !== 'production')
-    return  "http://localhost:3001/api/";
+    return  "http://localhost:3001/";
   else{
     return "/";
   }
