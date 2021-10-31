@@ -31,13 +31,13 @@ const App = () => {
           {/*Navigation bar*/}
           {isAuthenticated && (
             <>
-              <Link to="/api/client" className="two columns">
+              <Link to="/client" className="two columns">
                 Client
               </Link>
-              <Link to="/api/trainer" className="two columns">
+              <Link to="/trainer" className="two columns">
                 Trainer
               </Link>
-              <Link to="/api/doWorkout" className="two columns">
+              <Link to="/doWorkout" className="two columns">
                 Workout
               </Link>
             </>
@@ -47,7 +47,7 @@ const App = () => {
         </div>
         <Switch>
           {/*The switch defines the routes and URL paths used.*/}
-          <Route path="/api/client">
+          <Route path="/client">
             <ClientProfile
               Ouruser={Ouruser}
               setourUser={setourUser}
@@ -55,7 +55,7 @@ const App = () => {
               setCompWO={setCompWO}
             />
           </Route>
-          <Route path="/api/trainer">
+          <Route path="/trainer">
             <TrainerProfile
               setourUser={setourUser}
               setTrainer={setTrainer}
@@ -63,7 +63,7 @@ const App = () => {
               Ouruser={Ouruser}
             />
           </Route>
-          <Route path="/api/doWorkout">
+          <Route path="/doWorkout">
             <DoWorkout
               Ouruser={Ouruser}
               setourUser={setourUser}

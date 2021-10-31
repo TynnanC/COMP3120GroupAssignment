@@ -24,8 +24,8 @@ app.use(cors());
 app.use(express.json());
 
 //Routes used for the API.
-app.use("/api/client", clientRouter);
-app.use("/api/workout", workoutRouter);
-app.use("/api/trainer", trainerRouter);
+app.use("/client", clientRouter);
+app.use("/workout", workoutRouter);
+app.use("/trainer", trainerRouter);
 
 module.exports = app;

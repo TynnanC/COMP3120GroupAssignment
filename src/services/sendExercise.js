@@ -3,7 +3,7 @@ import axios from "axios";
 //Checks if the production or development application is being run, and returns the correlating URL.
 const BaseUrl = (() => {
   if (process.env.NODE_ENV !== 'production')
-    return  "http://localhost:3001/api/";
+    return  "http://localhost:3001/";
   else{
     return "/";
   }
