@@ -31,7 +31,7 @@ const workoutSchema = new mongoose.Schema({
         required: true,
     },
     Exercises: {
-        type: [Number],
+        type: [{}],
         required: true,
     },
     clientID: {
