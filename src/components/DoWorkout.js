@@ -9,7 +9,7 @@ import Workout from "./Workout.jsx";
 const DoWorkout = ({ Ouruser, setourUser, workout, setWorkout }) => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const { user, isAuthenticated } = useAuth0();
-  const [workoutData, setWorkoutData] = useState();
+  const [workoutData, setWorkoutData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -22,22 +22,26 @@ const DoWorkout = ({ Ouruser, setourUser, workout, setWorkout }) => {
     getData();
   }, []);
 
-  //
-
   if (!isAuthenticated) {
     console.log("No user OAUTH:");
     return <p>Please Login</p>;
-  }
-
-  if (isAuthenticated && dataLoaded) {
-    console.log("Workout Data State", workoutData);
-    return (
-      <>
-        {workoutData.map((workout) => (
-          <Workout key={workout._id} {...workoutData} />
-        ))}
-      </>
-    );
+  } else {
+    if (dataLoaded) {
+      console.log("Workout Data State", workoutData[0].Exercises);
+      console.log("Workout Data: ", workoutData);
+      return (
+        <>
+          {workoutData.map((workout) => (
+            <>
+              <Workout key={workout._id} workout={workout} />
+              <hr />
+            </>
+          ))}
+        </>
+      );
+    } else {
+      return <p>Loading...</p>;
+    }
   }
 };
 export default DoWorkout;
