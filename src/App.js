@@ -12,7 +12,7 @@ import TrainerProfile from "./components/TrainerProfile.js";
 import DoWorkout from "./components/DoWorkout.js";
 import Auth0Login from "./components/Auth0Login.js";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import MainView from "./components/MainView";
 //The main application component.
 const App = () => {
   //Auth0 hook tracks if a user is authenticated or not.
@@ -22,56 +22,7 @@ const App = () => {
   const [trainer, setTrainer] = useState(null);
   const [workout, setWorkout] = useState(null);
   const [completedWO, setCompWO] = useState(null);
-  return (
-    <div className="navBar">
-      <Router>
-        <div className="row">
-          {isAuthenticated && (
-            <>
-              <Link to="/client" className="two columns">
-                Client
-              </Link>
-              <Link to="/trainer" className="two columns">
-                Trainer
-              </Link>
-              <Link to="/doWorkout" className="two columns">
-                Workout
-              </Link>
-            </>
-          )}
-          {/*Below is the Login form using Auth0*/}
-          <Auth0Login setTrainer={setTrainer} trainer={trainer} />
-        </div>
-        <Switch>
-          {/*The switch defines the routes and URL paths used.*/}
-          <Route path="/client">
-            <ClientProfile
-              Ouruser={Ouruser}
-              setourUser={setourUser}
-              completedWO={completedWO}
-              setCompWO={setCompWO}
-            />
-          </Route>
-          <Route path="/trainer">
-            <TrainerProfile
-              setourUser={setourUser}
-              setTrainer={setTrainer}
-              trainer={trainer}
-              Ouruser={Ouruser}
-            />
-          </Route>
-          <Route path="/doWorkout">
-            <DoWorkout
-              Ouruser={Ouruser}
-              setourUser={setourUser}
-              workout={workout}
-              setWorkout={setWorkout}
-            />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+  return <MainView />;
 };
 
 export default App;

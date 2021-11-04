@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import getWorkout from "../services/getWorkout.js";
-import sendExercise from "../services/sendExercise.js";
 import { useAuth0 } from "@auth0/auth0-react";
-import unitApi from "../services/uiApi";
 import axios from "axios";
 import Workout from "./Workout.jsx";
 
-const DoWorkout = ({ Ouruser, setourUser, workout, setWorkout }) => {
+const DoWorkout = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const { user, isAuthenticated } = useAuth0();
   const [workoutData, setWorkoutData] = useState([]);

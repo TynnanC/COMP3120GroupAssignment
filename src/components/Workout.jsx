@@ -71,7 +71,7 @@ const Workout = (props) => {
           ))}
         </div>
         <div className="three columns">
-          <h2> Warmdown </h2>
+          <h2> Warm down </h2>
           <p className="warmUpOrDown">
             Perform {props.workout.warmDown[0].exercise}
             for 60 seconds.

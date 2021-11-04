@@ -1,22 +1,19 @@
-.main-sidebar-wrapper {
-    width: 5%;
-    border: 1px solid black;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .main-sidebar {
-    border: 1px solid black;
+    height: 100%;
+    background: rgb(105, 211, 103);
+    border-radius: 0px 25px 0px 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-btn {
-    padding: 40px;
+    padding: 50px;
 }
 
 .btn {
-    width: 30px;
-    fill: black;
+    filter: invert(100%) sepia(0%) saturate(7444%) hue-rotate(209deg) brightness(117%) contrast(81%);
+}
+
+body {
+    background: rgb(232, 232, 232);
 }

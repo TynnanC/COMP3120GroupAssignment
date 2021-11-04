@@ -1,0 +1,19 @@
+@font-face {
+    font-family: momcake;
+    src: url("../assets/fonts/mom-cake-font.otf");
+}
+
+.main-welcome-heading {
+    text-align: center;
+    font-size: 30px;
+}
+
+.main-logo {
+    font-family: momcake;
+    font-size: 90px;
+    padding-left: 40px;
+}
+
+.main-header-container {
+    height: 15vh;
+}

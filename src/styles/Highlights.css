@@ -1,0 +1,19 @@
+.main-highlights-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    height: 150px;
+}
+
+.highlight-container {
+    width: 20%;
+    height: 150px;
+    background: darkgray;
+    border-radius: 25px;
+    font-size: 50px;
+    line-height: 150px;
+}
+
+.highlight-container p {
+    margin-left: 25px;
+}
