@@ -10,8 +10,12 @@ const Highlights = (props) => {
       <div className="highlight-container">
         <p>🕒{props.dtime}</p>
       </div>
-      <div className="highlight-container"></div>
-      <div className="highlight-container"></div>
+      <div className="highlight-container">
+        <p>📒{props.cals}</p>
+      </div>
+      <div className="highlight-container">
+        <p>✔️{props.cals}</p>
+      </div>
     </div>
   );
 };
