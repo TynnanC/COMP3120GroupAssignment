@@ -1,31 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/workoutview.css";
-
-const workouts = [
-  "Benchpress 5 sets of 50kgs",
-  "Benchpress 5 sets of 50kgs",
-  "Benchpress 5 sets of 50kgs",
-];
-const initialState = Object.fromEntries(
-  workouts.map((v, index) => [index, false])
-);
+import Context from "../context";
 
 const WorkoutView = (props) => {
-  const [checked, setChecked] = React.useState(initialState);
+  const {
+    workout: [workout],
+    setWorkout,
+  } = useContext(Context);
 
   const handleChange = (event) => {
     const { target } = event;
     const { index } = target.dataset;
 
-    console.log(target.checked, target.dataset.index);
-    setChecked({
+    /*setChecked({
       ...checked,
       [index]: target.checked,
-    });
+    });*/
+
+    workout.Exercises[index].complete = target.checked;
+    setWorkout([workout]);
   };
 
+  if (!workout) return null;
+
+  console.log({ workout });
+
   // same as value => value
-  const allChecked = Object.values(checked).every((value) => value === true);
+  const allChecked = workout.Exercises.every(
+    ({ complete }) => complete === true
+  );
 
   return (
     <div className="main-workout-container">
@@ -38,14 +41,14 @@ const WorkoutView = (props) => {
         </div>
         <div className={`main-wo ${allChecked ? "highlight" : ""}`}>
           <h2>Workout</h2>
-          {workouts.map((workout, index) => (
+          {workout.Exercises.map((workout, index) => (
             <div className="main-workout-item-container">
               <input
                 type="checkbox"
                 data-index={index}
                 onChange={handleChange}
               />
-              <p>{workout}</p>
+              <p>{workout.name}</p>
             </div>
           ))}
         </div>
