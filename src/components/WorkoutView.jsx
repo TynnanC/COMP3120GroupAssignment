@@ -33,11 +33,14 @@ const WorkoutView = (props) => {
   return (
     <div className="main-workout-container">
       <div className="main-workout-heading-container">
-        <h1 className="main-workout-heading">Beginner Workout 1</h1>
+        <h1 className="main-workout-heading">{workout.workoutName}</h1>
       </div>
       <div className="main-workout-data">
         <div className="main-wu">
           <h2>Warmup:</h2>
+          <p>
+            {workout.warmUp[0].exercise}: {workout.warmUp[0].time} Seconds
+          </p>
         </div>
         <div className={`main-wo ${allChecked ? "highlight" : ""}`}>
           <h2>Workout</h2>
@@ -48,7 +51,9 @@ const WorkoutView = (props) => {
                 data-index={index}
                 onChange={handleChange}
               />
-              <p>{workout.name}</p>
+              <p>
+                {workout.name}: {workout.sets} of {workout.repetitions} Reps{" "}
+              </p>
             </div>
           ))}
         </div>

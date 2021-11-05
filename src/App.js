@@ -7,9 +7,6 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import ClientProfile from "./components/ClientProfile.js";
-import TrainerProfile from "./components/TrainerProfile.js";
-import DoWorkout from "./components/DoWorkout.jsx";
 import Auth0Login from "./components/Auth0Login.js";
 import { useAuth0 } from "@auth0/auth0-react";
 import MainView from "./components/MainView";
