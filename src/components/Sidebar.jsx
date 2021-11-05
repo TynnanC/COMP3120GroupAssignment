@@ -5,10 +5,6 @@ import plusIcon from "../assets/plusIcon.svg";
 import personIcon from "../assets/personIcon.svg";
 import settingsIcon from "../assets/settingsIcon.svg";
 
-// Sidebar will be placed into mainview
-// todo change to react router
-// Need to add mobile compatability
-
 const Sidebar = () => {
   return (
     <div className="main-sidebar">

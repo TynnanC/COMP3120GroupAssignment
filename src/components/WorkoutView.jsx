@@ -12,23 +12,15 @@ const WorkoutView = (props) => {
     const { target } = event;
     const { index } = target.dataset;
 
-    /*setChecked({
-      ...checked,
-      [index]: target.checked,
-    });*/
-
     workout.Exercises[index].complete = target.checked;
     setWorkout([workout]);
   };
 
-  if (!workout) return null;
-
-  console.log({ workout });
-
-  // same as value => value
   const allChecked = workout.Exercises.every(
     ({ complete }) => complete === true
   );
+
+  if (!workout) return null;
 
   return (
     <div className="main-workout-container">
