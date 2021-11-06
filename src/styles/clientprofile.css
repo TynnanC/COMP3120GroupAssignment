@@ -1,0 +1,24 @@
+.main-client-profile-container {
+  border-radius: 25px;
+  height: 300px;
+  margin: 20px;
+  background: white;
+  box-shadow: 4px 3px 13px 2px rgba(0, 0, 0, 0.58);
+}
+
+.main-client-profile-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.client-picture {
+  border: 1px solid grey;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+}
+
+.main-client-data-container {
+  margin: 50px;
+}

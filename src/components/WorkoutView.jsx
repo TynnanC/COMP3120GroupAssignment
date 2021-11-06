@@ -16,9 +16,7 @@ const WorkoutView = (props) => {
     setWorkout([workout]);
   };
 
-  const allChecked = workout.Exercises.every(
-    ({ complete }) => complete === true
-  );
+  
 
   if (!workout) return null;
 
@@ -34,7 +32,7 @@ const WorkoutView = (props) => {
             {workout.warmUp[0].exercise}: {workout.warmUp[0].time} Seconds
           </p>
         </div>
-        <div className={`main-wo ${allChecked ? "highlight" : ""}`}>
+        <div className="main-wo">
           <h2>Workout</h2>
           {workout.Exercises.map((workout, index) => (
             <div className="main-workout-item-container">
@@ -44,7 +42,8 @@ const WorkoutView = (props) => {
                 onChange={handleChange}
               />
               <p>
-                {workout.name}: {workout.sets} of {workout.repetitions} Reps{" "}
+                {workout.name}: {workout.sets} Sets of {workout.repetitions}{" "}
+                Reps
               </p>
             </div>
           ))}

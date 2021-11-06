@@ -11,22 +11,29 @@ const Highlights = (props) => {
   const completeWorkouts = workout.Exercises.filter(
     ({ complete }) => complete === true
   );
+  const allChecked = workout.Exercises.every(
+    ({ complete }) => complete === true
+  );
 
   return (
     <div className="main-highlights-section">
       <div className="highlight-container">
-        <p>🔥{props.cals}</p>
+        <span>🔥</span>
+        <span>700 kcal</span>
       </div>
       <div className="highlight-container">
-        <p>🕒{props.dtime}</p>
+        <span>🕒</span>
+        <span>{workout.time} Minutes</span>
       </div>
       <div className="highlight-container">
-        <p>
-          📒{completeWorkouts.length} /{workout.Exercises.length}
-        </p>
+        <span>📒</span>
+        <span>
+          {completeWorkouts.length} /{workout.Exercises.length}
+        </span>
       </div>
-      <div className="highlight-container">
-        <p>✔️{props.cals}</p>
+      <div className={`highlight-container${allChecked ? "-green" : ""}`}>
+        <span>✔️</span>
+        <span>Completed</span>
       </div>
     </div>
   );

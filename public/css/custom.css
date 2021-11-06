@@ -1,84 +1,82 @@
-.login{
-    text-align: center;
-    font-size: 30px;
+.login {
+  text-align: center;
+  font-size: 30px;
 }
-.login button:active{
-    background-color: #a8a8a8;
+.login button:active {
+  background-color: #a8a8a8;
 }
-.welcomeMessage{
-    text-align: center;
-    font-size: 26px;
+.welcomeMessage {
+  text-align: center;
+  font-size: 26px;
 }
-.navBar div a{
-    text-decoration: none;
-    color: #000000;
-    font-size: 26px;
-    text-align: center;
-    margin:0;
+.navBar div a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 26px;
+  text-align: center;
+  margin: 0;
 }
-.navBar div a:hover{
-    background-color: #000000;
-    color: #ffffff;
+.navBar div a:hover {
+  background-color: #000000;
+  color: #ffffff;
 }
-.navBar div button:active{
-    background-color: #a8a8a8;
+.navBar div button:active {
+  background-color: #a8a8a8;
 }
-.navBar div a:active{
-    background-color: #008000;
+.navBar div a:active {
+  background-color: #008000;
 }
-.workout{
-    text-align: center;
-    font-size: 18px;
+.workout {
+  text-align: center;
+  font-size: 18px;
 }
-.workout h2{
-    background-color: #a8a8a8;
-    font-weight: bold;
+.workout h2 {
+  background-color: #a8a8a8;
+  font-weight: bold;
 }
-.workout ul{
-    list-style-type: none;
-    text-align: left;
+.workout ul {
+  list-style-type: none;
+  text-align: left;
 }
-.workout button:active{
-    background-color: #a8a8a8;
+.workout button:active {
+  background-color: #a8a8a8;
 }
-.exerciseName{
-    background-color: #84e984;
+.exerciseName {
+  background-color: #84e984;
 }
-.warmUpOrDown{
-    text-align: left;
+.warmUpOrDown {
+  text-align: left;
 }
-.profile{
-   
-    text-align: center;
-    border-top: #000000 solid 1px;
+.profile {
+  text-align: center;
+  border-top: #000000 solid 1px;
 }
-.profileimage{
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 150px;
-    margin-bottom: 10px;
-
+.profileimage {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 150px;
+  margin-bottom: 10px;
 }
-.workoutheadings{
-    border: #000000 solid 1px;
-    background-color: #a8a8a8;
-    text-align: center;
-    font-weight: bold;
+.workoutheadings {
+  border: #000000 solid 1px;
+  background-color: #a8a8a8;
+  text-align: center;
+  font-weight: bold;
 }
-.completedworkout{
-    background-color: #a8a8a8;
-    font-weight: bold;
+.completedworkout {
+  background-color: #a8a8a8;
+  font-weight: bold;
 }
-.compWorkoutExerciseName{
-    background-color: #84e984;
+.compWorkoutExerciseName {
+  background-color: #84e984;
 }
-.completedworkoutcontainer{
-    text-align: center;
-    font-size: 18px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    padding: 5px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+.completedworkoutcontainer {
+  text-align: center;
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
-.ninty{
-    margin-left: 5px;
+.ninty {
+  margin-left: 5px;
 }

@@ -12,6 +12,7 @@
     font-family: momcake;
     font-size: 90px;
     padding-left: 40px;
+    transform: translateY(-40px);
 }
 
 .main-header-container {}
