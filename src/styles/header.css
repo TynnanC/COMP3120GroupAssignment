@@ -1,39 +1,37 @@
 @font-face {
-    font-family: momcake;
-    src: url("../assets/fonts/mom-cake-font.otf");
+  font-family: momcake;
+  src: url("../assets/fonts/mom-cake-font.otf");
 }
 
 .main-welcome-heading {
-    text-align: center;
-    font-size: 30px;
+  text-align: center;
+  font-size: 30px;
 }
 
 .main-logo {
-    font-family: momcake;
-    font-size: 90px;
-    padding-left: 40px;
-    transform: translateY(-40px);
+  font-family: momcake;
+  font-size: 90px;
+  padding-left: 40px;
+  transform: translateY(-40px);
 }
 
-.main-header-container {}
-
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
 }
 
 .mt-1 {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .mr-2 {
-    margin-right: 20px;
+  margin-right: 20px;
 }

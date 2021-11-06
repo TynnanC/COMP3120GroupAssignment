@@ -27,7 +27,7 @@
 .highlight-container-green {
   width: 20%;
   height: 150px;
-  background: green;
+  background: rgb(105, 211, 103);
   border-radius: 25px;
   font-size: 50px;
   line-height: 150px;

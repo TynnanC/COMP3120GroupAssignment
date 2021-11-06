@@ -15,11 +15,13 @@ const Highlights = (props) => {
     ({ complete }) => complete === true
   );
 
+  const handleClick = () => {};
+
   return (
     <div className="main-highlights-section">
       <div className="highlight-container">
         <span>🔥</span>
-        <span>700 kcal</span>
+        <span>{workout.kcals} kcal</span>
       </div>
       <div className="highlight-container">
         <span>🕒</span>

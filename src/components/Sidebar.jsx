@@ -13,8 +13,8 @@ const Sidebar = () => {
       <Link exact to="/" className="sidebar-btn" title="Dashboard">
         <img className="btn" src={homeIcon} alt="" />
       </Link>
-      <Link to="/profile" className="sidebar-btn" title="Add Workout">
-        <img className="btn" src={profileIcon} alt="AddWorkout" />
+      <Link to="/profile" className="sidebar-btn" title="Profile Page">
+        <img className="btn" src={profileIcon} alt="ProfileIcon" />
       </Link>
       <Link to="/" className="sidebar-btn" title="Settings">
         <img className="btn" src={settingsIcon} alt="" />
