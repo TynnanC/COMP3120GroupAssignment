@@ -65,7 +65,14 @@ The next step is to include better management of unexpected events. This would i
 The final step is considering a relational database. MongoDB is adequate for the purpose of creating a functional application, but a relational database would make establihsing the connections between clients, trainers, and workouts much easier. An example relational database could be MySQL.
 
 # Team roles and contributions:
-*To be done at end*
+
+## Eric Korhonen  
+## Tynnan Conquit
+My main role was generally on the frontend and developer documentation aspects of the project.
+I made the initial data structure though it largely changed over time, many variables though remained. I created the basic components for the client and trainer profiles, these were changed over time and the trainer profile removed, but maintained multiple elements I incorporated such as the basic structure each workout would contain and how the data was organised on the page for a user to read. I started the workout component but got stuck and Lachlan took over to help, though I helped establish what the component would contain. I started on the styling though most of it was overhauled, but some elements remained such as the horizontal display for a workout on the workout page. I helped add comments throughout the code to increase readability. I contributed the README and DEPLOYMENT md files, and the screenshots folder and README file to describe the screenshots. Like each member, I also did small batches of refactoring throughout development.
+## Ali Kazim  
+## Lachlan Terrey
+
 ## Project management and team communication:
 The bulk of the communication was done through Slack. This enabled communication to happen much quicker and more in a more casual manner than using the discussion forum provided initially. Zoom was also utilised in order to discuss what the next steps of the project were and organise what was happening for each Weeks Sprint Report.
 Github was the primary tool used to share code and keep track of the completed sections. Commits were mostly used as expected, highlighting what has been completed, though it was also used to share code that a member was stuck on, or refactor and clean code. The main branch was the only branch used. This was due to members being generally unsure of how to use Github to it's full extent. Members made a point of messaging in Slack each time they pushed their work so other members could be aware that merge problems may occur if they also try to push, and as a reminder to pull from Github the next time they work on the project.
