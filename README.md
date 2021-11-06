@@ -6,6 +6,9 @@
 ## Ali Kazim  
 ## Lachlan Terrey
 
+# Deployed application:
+https://powerful-scrubland-03851.herokuapp.com/
+
 # Outline:
 The application we propose to build will be for use by a personal trainer and their clients for training in the gym environment. The application is mostly form based providing training plans, client profiles, and trainer profiles. If the minimal viable product was met, an Apex charts API in conjunction with mongodb could be included to allow for the graphing of progress. Optionally it could be used by multiple personal trainers and multiple clients.  
 The app will have progression built in, each session you can choose whether or not to accept the progression. This can be implemented using buttons, and use JavaScript to offer a pre-determined progression.  
@@ -63,8 +66,6 @@ The final step is considering a relational database. MongoDB is adequate for the
 The bulk of the communication was done through Slack. This enabled communication to happen much quicker and more casual manner than using the discussion forum provided initially. Zoom was also utilised in order to discuss what the next steps of the project were and organise what was happening for each Weeks Sprint Report.
 Github was the primary tool used to share code and keep track of the completed sections. Commits were mostly used as expected, highlighting what has been completed, though it was also used to share code that a member was stuck on, or refactor and clean code. The main branch was the only branch used. This was due to members being generally unsure of how to use Github to it's full extent. Members made a point of messaging in Slack each time they pushed their work so other members could be aware that merge problems may occur if they also try to push, and as a reminder to pull from Github the next time they work on the project.
 
-# Images folder descriptions:
-*To be done at end*  
 # Problems with the project:
 *To be done at end*
 The first major problem is the lack of testing. This is addressed on in the section for next steps for developers. There is likely errors throughout the code that is a natural result of the time limit. Testing should always be done before deploying an application, this has not happened though due to the time constraints of the project. Testing could have also happened alongside development, but the agile nature of the development and the project changing majorly multiple times would have made this difficult and consume more of the already limited time.
