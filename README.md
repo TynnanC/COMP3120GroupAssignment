@@ -9,6 +9,10 @@
 # Deployed application:
 https://powerful-scrubland-03851.herokuapp.com/
 
+# App Description:
+EziFit provides you the client with the connection to your trainer when not actually doing a workout with them. It records your workouts and will provide you new workouts to complete. You can also request a new work. Your trainer is able to see the workouts you have completed to allow them to watch you progress.
+EziFit can show you all your workouts completed in one place and provide you with information like Calories Burnt during training. EziFit can also help you with workout progression.
+
 # Outline:
 The application we propose to build will be for use by a personal trainer and their clients for training in the gym environment. The application is mostly form based providing training plans, client profiles, and trainer profiles. If the minimal viable product was met, an Apex charts API in conjunction with mongodb could be included to allow for the graphing of progress. Optionally it could be used by multiple personal trainers and multiple clients.  
 The app will have progression built in, each session you can choose whether or not to accept the progression. This can be implemented using buttons, and use JavaScript to offer a pre-determined progression.  
@@ -63,12 +67,18 @@ The final step is considering a relational database. MongoDB is adequate for the
 # Team roles and contributions:
 *To be done at end*
 ## Project management and team communication:
-The bulk of the communication was done through Slack. This enabled communication to happen much quicker and more casual manner than using the discussion forum provided initially. Zoom was also utilised in order to discuss what the next steps of the project were and organise what was happening for each Weeks Sprint Report.
+The bulk of the communication was done through Slack. This enabled communication to happen much quicker and more in a more casual manner than using the discussion forum provided initially. Zoom was also utilised in order to discuss what the next steps of the project were and organise what was happening for each Weeks Sprint Report.
 Github was the primary tool used to share code and keep track of the completed sections. Commits were mostly used as expected, highlighting what has been completed, though it was also used to share code that a member was stuck on, or refactor and clean code. The main branch was the only branch used. This was due to members being generally unsure of how to use Github to it's full extent. Members made a point of messaging in Slack each time they pushed their work so other members could be aware that merge problems may occur if they also try to push, and as a reminder to pull from Github the next time they work on the project.
 
 # Problems with the project:
-*To be done at end*
+## Lack of testing.
 The first major problem is the lack of testing. This is addressed on in the section for next steps for developers. There is likely errors throughout the code that is a natural result of the time limit. Testing should always be done before deploying an application, this has not happened though due to the time constraints of the project. Testing could have also happened alongside development, but the agile nature of the development and the project changing majorly multiple times would have made this difficult and consume more of the already limited time.
-*May talk about some partially redundant code*
-*May talk about new users and how they are handled*
-*May talk about problems with Mongo and Heroku i.e. not relational, can be expensive as the user base grows etc*
+
+## Inability to handle new users.
+The second problem is the inability to handle new users. This problem is worked around by requesting users to speak to a trainer to create an account. Ideally, they should be able to create an account on the app and the trainers can select what clients are theirs. This should be added as currently the app serves no purpose to unregistered clients, and provides little in terms of details for them to go and get registered. This may also include a bit of information regarding how user can actually get into contact with trainers, the gym etc.
+
+## Trainer account
+Currently there is no ability for a trainer to log in and have their own specified content or functionalities. This should be included as the app requires clients to complete workouts made by these trainers. Currently the trainer must log into MongoDB and manually enter the workout for a client. This is inefficient. Trainers, when logged in, may have mostly the same features, but the main difference is instead of completing a workout, they can design one for a client. An additional route should also be added to allow trainers to select what clients are theirs.
+
+## Scalability and cost.
+These two problems will be correlated. As the application expands and more users are added, using MongoDB will become difficult to effectively manage what clients are assigned to what trainers. Using a relational database is the best solution for this, as manually assigning these identifiers is ineffective as more users are added, and requires additional overhead and processing. This would create a direct relationship between client and trainer, linking them in the database. Similar to this, Heroku will become a less viable option as the application expands. Heroku already can be a slow when handling requests if the application has not been used in 30 minutes. Further, Heroku free tier only allows for a maximum of 550 dyno hours a month. The more users using the application, the more the dyno hours are used, and eventually the business will require upgrading, at a cost, to keep the application deployed. This may require over hosting services to be compared for price and performance.
