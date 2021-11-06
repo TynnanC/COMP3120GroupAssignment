@@ -3,43 +3,40 @@ import "../styles/workoutview.css";
 import Context from "../context";
 
 const WorkoutView = (props) => {
-  const {
-    workout: [workout],
-    setWorkout,
-  } = useContext(Context);
+  const { activeWorkout, workout, setWorkout } = useContext(Context);
 
   const handleChange = (event) => {
     const { target } = event;
     const { index } = target.dataset;
 
-    workout.Exercises[index].complete = target.checked;
-    setWorkout([workout]);
+    activeWorkout.Exercises[index].complete = target.checked;
+    setWorkout([...workout]);
   };
 
-  
-
-  if (!workout) return null;
+  if (!activeWorkout) return null;
 
   return (
     <div className="main-workout-container">
       <div className="main-workout-heading-container">
-        <h1 className="main-workout-heading">{workout.workoutName}</h1>
+        <h1 className="main-workout-heading">{activeWorkout.workoutName}</h1>
       </div>
       <div className="main-workout-data">
         <div className="main-wu">
           <h2>Warmup:</h2>
           <p>
-            {workout.warmUp[0].exercise}: {workout.warmUp[0].time} Seconds
+            {activeWorkout.warmUp[0].exercise}: {activeWorkout.warmUp[0].time}{" "}
+            Seconds
           </p>
         </div>
         <div className="main-wo">
           <h2>Workout</h2>
-          {workout.Exercises.map((workout, index) => (
+          {activeWorkout.Exercises.map((workout, index) => (
             <div className="main-workout-item-container">
               <input
                 type="checkbox"
                 data-index={index}
                 onChange={handleChange}
+                checked={workout.complete}
               />
               <p>
                 {workout.name}: {workout.sets} Sets of {workout.repetitions}{" "}

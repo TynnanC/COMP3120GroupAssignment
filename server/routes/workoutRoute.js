@@ -13,7 +13,7 @@ app.get("/", async (request, response) => {
 });
 
 //HTTP GET Request, Return one workout
-app.get("/:id", async (request, response) => {
+app.get("/completed", async (request, response) => {
   const completedWorkouts = await workout.find({ completed: true });
   try {
     response.json(completedWorkouts);
@@ -22,24 +22,7 @@ app.get("/:id", async (request, response) => {
   }
 });
 
-app.get("/completed", getWorkout, (request, response) => {
-  try {
-    response.json(response.workout);
-  } catch (err) {
-    response.status(400).json({ message: err.message });
-  }
-});
-
 //HTTP GET Request, Return all workouts for one client
-app.get("/:id/workouts", async (request, response) => {
-  const id = String(request.params.id);
-  for (let i = 0; i < appdata.workout.length; i++) {
-    if (appdata.workout[i].clientId === id) {
-      response.send(appdata.workout[i]);
-      break;
-    }
-  }
-});
 
 //HTTP POST Request to API, Creates new workout
 app.post("/", async (request, response) => {
@@ -67,7 +50,11 @@ app.post("/", async (request, response) => {
 });
 
 //HTTP PATCH Request, Updates a workout to completed
-app.post("/:id", getWorkout, async (request, response) => {
+app.post("/completed/:id", getWorkout, async (request, response) => {
+  const _id = request.params.id;
+  await workout.findOneAndUpdate({ _id }, { completed: true });
+  return response.json(await workout.find({}));
+
   response.workout.completed = true;
   try {
     const completedWorkout = await response.workout.save();

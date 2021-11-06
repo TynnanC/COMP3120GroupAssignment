@@ -2,38 +2,60 @@ import React, { useContext } from "react";
 import "../styles/Highlights.css";
 import "../styles/workoutview.css";
 import Context from "../context";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Highlights = (props) => {
-  const {
-    workout: [workout],
-  } = useContext(Context);
+  let { activeWorkout, setWorkout } = useContext(Context);
 
-  const completeWorkouts = workout.Exercises.filter(
+  if (!activeWorkout) {
+    return <div>You have no workouts left!</div>;
+  }
+
+  const completeWorkouts = activeWorkout.Exercises.filter(
     ({ complete }) => complete === true
   );
-  const allChecked = workout.Exercises.every(
+  const allChecked = activeWorkout.Exercises.every(
     ({ complete }) => complete === true
   );
 
-  const handleClick = () => {};
+  const handleClick = async () => {
+    if (!allChecked) return;
+
+    console.log("Change workouts", activeWorkout);
+    const updatedWorkouts = await axios.post(
+      "/workout/completed/" + activeWorkout._id
+    );
+
+    console.log({ updatedWorkouts });
+    toast("Workout completed!");
+    setTimeout(() => {
+      setWorkout(updatedWorkouts.data);
+    }, 3000);
+  };
 
   return (
     <div className="main-highlights-section">
       <div className="highlight-container">
         <span>🔥</span>
-        <span>{workout.kcals} kcal</span>
+        <span>{activeWorkout.kcals} kcal</span>
       </div>
       <div className="highlight-container">
         <span>🕒</span>
-        <span>{workout.time} Minutes</span>
+        <span>{activeWorkout.time} Minutes</span>
       </div>
       <div className="highlight-container">
         <span>📒</span>
         <span>
-          {completeWorkouts.length} /{workout.Exercises.length}
+          {completeWorkouts.length} /{activeWorkout.Exercises.length}
         </span>
       </div>
-      <div className={`highlight-container${allChecked ? "-green" : ""}`}>
+      <div
+        onClick={handleClick}
+        className={`highlight-container ${
+          allChecked ? "highlight-container-green" : ""
+        }`}
+      >
         <span>✔️</span>
         <span>Completed</span>
       </div>
