@@ -52,13 +52,9 @@ app.post("/", async (request, response) => {
 //HTTP PATCH Request, Updates a workout to completed
 app.post("/completed/:id", getWorkout, async (request, response) => {
   const _id = request.params.id;
-  await workout.findOneAndUpdate({ _id }, { completed: true });
-  return response.json(await workout.find({}));
-
-  response.workout.completed = true;
   try {
-    const completedWorkout = await response.workout.save();
-    response.json(completedWorkout);
+    await workout.findOneAndUpdate({ _id }, { completed: true });
+    response.json(await workout.find({}));
   } catch (err) {
     response.status(400).json({ message: err.message });
   }

@@ -1,5 +1,3 @@
-const config = require('./utils/config')
-
 //This is the server the API runs on.
 const app = require('./app')
 
