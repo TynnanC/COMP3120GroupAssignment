@@ -1,0 +1,6 @@
+{
+    "domain" : "dev-d-ju3bdt.us.auth0.com",
+    "clientId" : "lDXFwHUEntIE0a8EoV6Mft6X5UaIVK0N",
+    "audience" : "https://dev-d-ju3bdt.us.auth0.com/api/v2/",
+    "scope" : "read:current_user update:current_user_metadata"
+}

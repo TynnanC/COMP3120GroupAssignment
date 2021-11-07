@@ -2,14 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
+import Auth_config from "./Auth_config.json"
 
 ReactDOM.render(
   <Auth0Provider
-    domain="dev-d-ju3bdt.us.auth0.com"
-    clientId="lDXFwHUEntIE0a8EoV6Mft6X5UaIVK0N"
+    domain=  {Auth_config.domain}
+    clientId={Auth_config.clientId}
     redirectUri={window.location.origin}
-    audience="https://dev-d-ju3bdt.us.auth0.com/api/v2/"
-    scope="read:current_user update:current_user_metadata"
+    audience={Auth_config.audience}
+    scope={Auth_config.scope}
   >
     <App />
   </Auth0Provider>,
