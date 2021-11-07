@@ -71,7 +71,8 @@ The final step is considering a relational database. MongoDB is adequate for the
 ## Tynnan Conquit 45898723
 My main role was generally on the frontend and developer documentation aspects of the project.
 I made the initial data structure though it largely changed over time, many variables though remained. I created the basic components for the client and trainer profiles, these were changed over time and the trainer profile removed, but maintained multiple elements I incorporated such as the basic structure each workout would contain and how the data was organised on the page for a user to read. I started the workout component but got stuck and Lachlan took over to help, though I helped establish what the component would contain. I started on the styling though most of it was overhauled, but some elements remained such as the horizontal display for a workout on the workout page. I helped add comments throughout the code to increase readability. I contributed the README and DEPLOYMENT md files, and the screenshots folder and README file to describe the screenshots. Like each member, I also did small batches of refactoring throughout development.
-## Ali Kazim  
+## Ali Kazim
+I started out with backend development by writing the server APIs and initial services with axois, then i moved towards authentication with jwt and got  it working with a login form component, the jwt authentication was abandoned since we decided that tha auth0 authentication is much more effecient and reliable. i worked on auth0 and got it integrated with the app. towards the end to project i worked on the front end of client profile and displaying the completed workouts. along the way i worked on styling the front end components a bit. and worked on user validation with auth0 but didnot impliment it in the backend routes further explained below in section #usr validation 
 ## Lachlan Terrey
 
 # Project management and team communication:
@@ -93,3 +94,7 @@ These two problems are correlated. As the application expands and more users are
 
 ## No new workouts
 Currently the application does not include any way for brand new workouts to be generated or added within the application. New workouts must be made by manually creating them in MongoDB. This ideally should be changed to allow generic randomised workouts to be made if pre-made trainer designed workouts have been exhausted, or allow a trainer to make these workouts directly on the app. As it stands, once the last workout is completed, no more workouts can be done until a new one to MongoDB is added.
+
+## User validation:
+the user validation with auth0 is set up on the front end and back end but due the format not matching its not implimented yet in the server APIs.
+the bearer token is attached awith the request from the front end but the jwsk mechanism is not verifying it for some reason. so it is left un implimented du to lack of time. 
