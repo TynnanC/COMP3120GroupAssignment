@@ -28,6 +28,12 @@
   margin: 10px;
   border-radius: 25px;
   box-shadow: 4px 3px 13px 2px rgba(0, 0, 0, 0.58);
+  text-align: center;
+}
+.main-wu p {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 0px;
 }
 
 .main-wd {
@@ -35,6 +41,11 @@
   margin: 10px;
   border-radius: 25px;
   box-shadow: 4px 3px 13px 2px rgba(0, 0, 0, 0.58);
+}
+.main-wd p {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 0px;
 }
 
 .main-wo p {
@@ -59,5 +70,9 @@ h2 {
   display: flex;
   flex-direction: row;
   padding: 10px;
+  flex-grow: 1;
 }
-
+.main-workout-item-container p {
+  text-align: left;
+  flex-grow: 1;
+}

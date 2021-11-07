@@ -23,10 +23,8 @@ const WorkoutView = (props) => {
       <div className="main-workout-data">
         <div className="main-wu">
           <h2>Warmup:</h2>
-          <p>
-            {activeWorkout.warmUp[0].exercise}: {activeWorkout.warmUp[0].time}{" "}
-            Seconds
-          </p>
+          <p>-{activeWorkout.warmUp[0].exercise}</p>
+          <p>🕒{activeWorkout.warmUp[0].time} Seconds</p>
         </div>
         <div className="main-wo">
           <h2>Workout</h2>
@@ -40,13 +38,16 @@ const WorkoutView = (props) => {
               />
               <p>
                 {workout.name}: {workout.sets} Sets of {workout.repetitions}{" "}
-                Reps
+                Reps 💪{workout.weight} KGS
               </p>
+              <p></p>
             </div>
           ))}
         </div>
         <div className="main-wd">
           <h2>Warmdown:</h2>
+          <p>-{activeWorkout.warmDown[0].exercise}</p>
+          <p>🕒{activeWorkout.warmDown[0].time} Seconds</p>
         </div>
       </div>
     </div>
