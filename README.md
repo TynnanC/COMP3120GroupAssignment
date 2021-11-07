@@ -67,7 +67,13 @@ The final step is considering a relational database. MongoDB is adequate for the
 
 # Team roles and contributions:
 
-## Eric Korhonen  
+## Eric Korhonen 44828225 
+Initiated project.
+Initial github setup.
+Setup a slack space for communication.
+Heroku deployment.
+Tried to a bit of project management. Organised to get people to talk on zoom. Presented Sprint reports, demo where we were.
+
 ## Tynnan Conquit 45898723
 My main role was generally on the frontend and developer documentation aspects of the project.
 I made the initial data structure though it largely changed over time, many variables though remained. I created the basic components for the client and trainer profiles, these were changed over time and the trainer profile removed, but maintained multiple elements I incorporated such as the basic structure each workout would contain and how the data was organised on the page for a user to read. I started the workout component but got stuck and Lachlan took over to help, though I helped establish what the component would contain. I started on the styling though most of it was overhauled, but some elements remained such as the horizontal display for a workout on the workout page. I helped add comments throughout the code to increase readability. I contributed the README and DEPLOYMENT md files, and the screenshots folder and README file to describe the screenshots. Like each member, I also did small batches of refactoring throughout development.
