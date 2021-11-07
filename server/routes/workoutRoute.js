@@ -1,6 +1,24 @@
 const express = require("express");
 const app = express.Router();
 const workout = require("../models/workout.js");
+const jwksRsa = require ("jwks-rsa")
+const jwt = require("express-jwt")
+const Auth_config = require("D:/group-web-project-group-q/src/Auth_config.json")
+
+//Auth0
+const checkjwt = jwt ({
+  secret : jwksRsa.expressJwtSecret({
+    cache : true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwkUri: "https://dev-d-ju3bdt.us.auth0.com/.well-known/jwks.json"
+  }),
+  audience: "https://dev-d-ju3bdt.us.auth0.com/api/v2/",
+  issuer: `https://dev-d-ju3bdt.us.auth0.com/`,
+  algorithms : ["RS256"]
+
+});
+
 
 //HTTP GET Request, Returns all workouts
 app.get("/", async (request, response) => {

@@ -6,7 +6,7 @@ export const Context = createContext();
 
 export function Provider(props) {
   const [workout, setWorkout] = useState([]);
-  const [token, setToken] = useState([]);
+  const [token, setToken] = useState("");
 
   const { getAccessTokenSilently } = useAuth0()
 
@@ -22,8 +22,8 @@ export function Provider(props) {
     axios
       .get("/workout", {
         headers: {
-          Authorization: `Bearer ${[token]}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then((res) => {
         console.log(res);
