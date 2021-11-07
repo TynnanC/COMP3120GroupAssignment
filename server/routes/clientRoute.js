@@ -35,7 +35,7 @@ app.post("/", async(request, response) => {
         const addClient = await client.save(newClient);
         response.json(addClient);
     } catch (error) {
-        response.status(500).json({ message: err.message });
+        response.status(500).json({ message: error.message });
     }
 });
 
