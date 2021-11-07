@@ -22,10 +22,14 @@ This shows how the "completed" button will automatically change colour to green 
 # workoutMidwayComplete
 This shows how a user can click the box next to an exercise to indicate they have completed it. This also shows the exercises use different styles when the box next to them is clicked. The tick mark and line through the text indicates they do not need to do that exercise any more in the workout.
 
+# landingPageNoWorkout
+This shows what the user will see if they log in but don't have a workout to complete. A basic message is shown informing the client that there are no more workouts in the database for them to complete.
+
 # clientProfile
 This page contains the basic details of the logged in user and their completed workouts.  
 In the white box, the users details are displayed. This includes their name, email, and a profile picture.  
 The grey box with the title "Completed Workouts" shows the completed workouts a user has done. This will display some basic information from the workout such as the name of it, how many calories they burned (proof of concept), and how long the workout took (based on the time the workout should take as displayed on the landing page).
 
 # landingPageProfileHover, landingPageHomeDashboardHover, landingPageSettingsHover
-These photos show some of the finer details of the page. These show that when the user hovers over these links, the little box containing the title of the page has also been customised. These show "Profile" when hovering over the user profile link, "Settings" when hovering over the settings link, and "Dashboard" when hovering over the landing page link. Although these details are not critical to the functionality of the application, these add to the professionalism and attention to detail that would be expected by a professional application.
+These photos show some of the finer details of the page. These show that when the user hovers over these links, the little box containing the title of the page has also been customised. These show "Profile" when hovering over the user profile link, "Settings" when hovering over the settings link, and "Dashboard" when hovering over the landing page link. Although these details are not critical to the functionality of the application, these add to the professionalism and attention to detail that would be expected by a professional application.  
+These also show how the URL has been changed to incorporate the EziFit name and changed the title of the browser tab.
