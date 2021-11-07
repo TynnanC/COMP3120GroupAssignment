@@ -75,6 +75,7 @@ I made the initial data structure though it largely changed over time, many vari
 
 ## Project management and team communication:
 The bulk of the communication was done through Slack. This enabled communication to happen much quicker and more in a more casual manner than using the discussion forum provided initially. Zoom was also utilised in order to discuss what the next steps of the project were and organise what was happening for each Weeks Sprint Report.
+
 Github was the primary tool used to share code and keep track of the completed sections. Commits were mostly used as expected, highlighting what has been completed, though it was also used to share code that a member was stuck on, or refactor and clean code. The main branch was the only branch used. This was due to members being generally unsure of how to use Github to it's full extent. Members made a point of messaging in Slack each time they pushed their work so other members could be aware that merge problems may occur if they also try to push, and as a reminder to pull from Github the next time they work on the project.
 
 # Problems with the project:
