@@ -3,7 +3,6 @@ const app = express.Router();
 const workout = require("../models/workout.js");
 const jwksRsa = require ("jwks-rsa")
 const jwt = require("express-jwt")
-const Auth_config = require("D:/group-web-project-group-q/src/Auth_config.json")
 
 //Auth0
 const checkjwt = jwt ({
